@@ -1,6 +1,12 @@
-import React, { FC } from 'react';
+import React from 'react';
+import NavigationBar from 'components/NavigationBar'
 const Home: React.FC = () => {
-    return <div>Hello, Next.js with TypeScript!</div>;
+    return (
+    <div>
+    <NavigationBar />
+    <div>Hello, Next.js with TypeScript!</div>
+    </div>
+    )
   };
   
   export default Home;
