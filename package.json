@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "keywords": [],
   "author": "Andrew Indeche",
@@ -21,6 +21,9 @@
   "devDependencies": {
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.57",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   }
 }
