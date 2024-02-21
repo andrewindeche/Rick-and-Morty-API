@@ -34,12 +34,24 @@ input{
   padding-left: 2em;
   font-size:larger
 }
+.search-form input:hover{
+  background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
+  color:#55BB25;
+    cursor: pointer;
+    animation: glowing 20s linear infinite;
+}
 button{
   width: 10%;
   height: 56px;
   font-size: 22px;
   border:8px solid #F7825E;
   background-color: #AC3131;
+}
+button:hover {
+  background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
+  color:#ffffff;
+    cursor: pointer;
+    animation: glowing 20s linear infinite;
 }
 .ImgContainer {
   display: flex;
