@@ -92,3 +92,9 @@ button:hover {
   content: "• ";
   font-size: large;
 }
+.location, .residents {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
