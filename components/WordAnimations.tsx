@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 
 const words = ["HALLOO!!!", "WELCOME", "TO", "RICK", "AND", "MORTY", "SEARCH", "ENGINE!"]
 
-const WordAnimation: React.FC = () => {
+const WordAnimations: React.FC = () => {
     const [visibleWords,setVisibleWords] = useState<string[]>([]);
     useEffect(() => {
         const interval = setInterval(() => {
@@ -14,8 +14,17 @@ const WordAnimation: React.FC = () => {
           }
       
           return () => clearInterval(interval);
-    }
-    return()
+    }, [visibleWords]);
+
+    return(
+    <div className="navigation">
+      {visibleWords.map((word, index) => (
+         <React.Fragment key={index}>
+        {index > 0 && ' '}<span>{word}</span>
+        </React.Fragment>
+      ))}
+    </div>
+    );
 };
 
-export default WordAnimation;
+export default WordAnimations;

@@ -1,10 +1,11 @@
 import React from 'react';
-import NavigationBar from 'components/NavigationBar'
+import NavigationBar from 'components/NavigationBar';
+import WordAnimations from 'components/WordAnimations';
 const Home: React.FC = () => {
     return (
     <div>
     <NavigationBar />
-    <div className="navigation">HALLOO!!! WELCOME TO RICK AND MORTY SEARCH ENGINE!</div>
+    <WordAnimations />
     </div>
     )
   };
