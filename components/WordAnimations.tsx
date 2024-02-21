@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState,useEffect } from 'react';
 
 const words = ["HALLOO!!!", "WELCOME", "TO", "RICK", "AND", "MORTY", "SEARCH", "ENGINE!"]
 
@@ -20,7 +20,7 @@ const WordAnimations: React.FC = () => {
     <div className="navigation">
       {visibleWords.map((word, index) => (
          <React.Fragment key={index}>
-        {index > 0 && ' '}<span>{word}</span>
+        {index > 0 && ' ' }<span>{word}</span>
         </React.Fragment>
       ))}
     </div>
