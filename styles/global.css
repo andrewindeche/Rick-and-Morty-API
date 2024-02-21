@@ -20,9 +20,19 @@ canvas {
   text-align: center;
 }
 input[type="text" i] {
-  color: #518D34;
+  color: white;
   width: 50%;
-  height: 50px;
+  height: 40px;
   border:8px solid #518D34;
   background-color: #55BB25;
+  font-size: 22px;
+}
+button{
+  width: 10%;
+  height: 56px;
+  display:inline-block;
+  margin-left: 8em;
+  font-size: 22px;
+  border:8px solid #F7825E;
+  background-color: #AC3131;
 }
