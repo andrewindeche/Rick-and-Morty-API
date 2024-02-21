@@ -7,7 +7,7 @@ const MyCanvas: React.FC = () => {
     const cnv = document.getElementById("cnv") as HTMLCanvasElement;
     const ctx = cnv.getContext("2d");
     const W = window.innerWidth;
-    const H = window.innerHeight * 0.24;
+    const H = window.innerHeight * 0.22;
 
     cnv.width = W;
     cnv.height = H;
@@ -60,7 +60,7 @@ const MyCanvas: React.FC = () => {
       <img 
         src="images/Logo.jpg" 
         alt="Logo"
-        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '200px', height: '120px',margin:'4em 6.8em 2em' }}
+        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '200px', height: '104px',margin:'3.8em 6.4em 2em' }}
        />
       <img
         ref={imageRef}

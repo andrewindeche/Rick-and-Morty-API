@@ -14,24 +14,23 @@ canvas {
     position: relative;
   }
 .navigation {
-  font-size: 50px;
+  font-size: 45px;
   color:#F7825E;
   text-shadow: 1px 1px 2px black;
   text-align: center;
 }
 input[type="text" i] {
   color: white;
-  width: 50%;
-  height: 40px;
-  border:8px solid #518D34;
+  width: 40%;
+  height: 35px;
+  border:6px solid #518D34;
   background-color: #55BB25;
   font-size: 22px;
+  margin: 1em 10em
 }
 button{
   width: 10%;
   height: 56px;
-  display:inline-block;
-  margin-left: 8em;
   font-size: 22px;
   border:8px solid #F7825E;
   background-color: #AC3131;
