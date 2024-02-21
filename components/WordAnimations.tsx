@@ -4,9 +4,18 @@ const words = ["HALLOO!!!", "WELCOME", "TO", "RICK", "AND", "MORTY", "SEARCH", "
 
 const WordAnimation: React.FC = () => {
     const [visibleWords,setVisibleWords] = useState<string[]>([]);
-    return(
-
-    )
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setVisibleWords((prevWords) => [...prevWords, words[prevWords.length]]);
+          }, 300); 
+      
+          if (visibleWords.length === words.length) {
+            clearInterval(interval);
+          }
+      
+          return () => clearInterval(interval);
+    }
+    return()
 };
 
 export default WordAnimation;
