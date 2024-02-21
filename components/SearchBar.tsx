@@ -14,7 +14,17 @@ const SearchBar: React.FC = ({ onSearch}) => {
         e.preventDefault();
         onSearch(searchQuery);
       };
-    return()
+    return(
+        <form onSubmit={handleSubmit} className="search-form">
+      <input
+        type="text"
+        placeholder="Enter your search query"
+        value={searchQuery}
+        onChange={handleInputChange}
+      />
+      <button type="submit">Search</button>
+    </form>
+    )
 }
 
 export default SearchBar;
