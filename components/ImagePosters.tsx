@@ -39,7 +39,7 @@ const ImagePosters: React.FC = () => {
         ref={imageRef2}
         src=""
         alt="Rick and Morty"
-        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #55BB25', width: '250px', height: '230px' }}
+        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #55BB25', width: '180px', height: '230px' }}
       />
       <img
         ref={imageRef3}

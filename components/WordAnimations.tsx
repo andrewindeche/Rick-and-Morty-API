@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState,useEffect } from 'react';
 
 const words = ["HALLOO!!!", "WELCOME", "TO", "RICK", "AND", "MORTY", "SEARCH", "ENGINE!"]
 
