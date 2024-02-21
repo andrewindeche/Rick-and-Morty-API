@@ -20,7 +20,7 @@ const WordAnimations: React.FC = () => {
     <div className="navigation">
       {visibleWords.map((word, index) => (
          <React.Fragment key={index}>
-        {index > 0 && ' '}<span>{word}</span>
+        {index > 0 && ' ' }<span>{word}</span>
         </React.Fragment>
       ))}
     </div>

@@ -14,12 +14,12 @@ canvas {
     position: relative;
   }
 .navigation {
-  font-size: 45px;
+  font-size: 40px;
   color:#F7825E;
   text-shadow: 1px 1px 2px black;
   text-align: center;
 }
-input[type="text" i] {
+input{
   color: white;
   width: 40%;
   height: 35px;
@@ -28,10 +28,24 @@ input[type="text" i] {
   font-size: 22px;
   margin: 1em 10em
 }
+.search-form input::placeholder {
+  color: #ffffff; 
+  transform: rotate(1deg); 
+  padding-left: 2em;
+  font-size:larger
+}
 button{
   width: 10%;
   height: 56px;
   font-size: 22px;
   border:8px solid #F7825E;
   background-color: #AC3131;
+}
+.ImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10em;
+  margin: 9em;
+  padding-left: 14em;
 }

@@ -28,24 +28,24 @@ const ImagePosters: React.FC = () => {
   }, []);
 
   return (
-    <div className="img">
+    <div className="ImgContainer">
       <img
         ref={imageRef1}
         src=""
         alt="Rick and Morty"
-        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #55BB25', width: '180px', height: '230px' }}
+        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #518D34', width: '180px', height: '230px' }}
       />
       <img
         ref={imageRef2}
         src=""
         alt="Rick and Morty"
-        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #55BB25', width: '180px', height: '230px' }}
+        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #518D34', width: '180px', height: '230px' }}
       />
       <img
         ref={imageRef3}
         src=""
         alt="Rick and Morty"
-        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #55BB25', width: '180px', height: '230px' }}
+        style={{ position: 'relative', transform: 'translate(-50%, -50%)', border: '8px solid #518D34', width: '180px', height: '230px' }}
       />
     </div>
   );
