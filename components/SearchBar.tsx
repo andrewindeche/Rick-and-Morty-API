@@ -5,6 +5,10 @@ interface SearchFormProps {
 }
 const SearchBar: React.FC = ({ onSearch}) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value);
+      };
     return()
 }
 
