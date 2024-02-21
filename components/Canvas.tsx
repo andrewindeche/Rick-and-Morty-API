@@ -57,6 +57,11 @@ const MyCanvas: React.FC = () => {
   return (
     <>
       <canvas id="cnv"></canvas>
+      <img 
+        src="images/Logo.jpg" 
+        alt="Logo"
+        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '200px', height: '120px',margin:'4em 6.8em 2em' }}
+       />
       <img
         ref={imageRef}
         src=""
