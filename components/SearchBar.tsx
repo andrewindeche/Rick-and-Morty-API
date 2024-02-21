@@ -9,6 +9,11 @@ const SearchBar: React.FC = ({ onSearch}) => {
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
       };
+    
+      const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        onSearch(searchQuery);
+      };
     return()
 }
 
