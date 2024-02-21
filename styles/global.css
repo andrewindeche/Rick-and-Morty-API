@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+*{
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+  }
+  
+canvas {
+    position: relative;
+  }
+.navigation {
+  font-size: 45px;
+  color:#F7825E;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+input[type="text" i] {
+  color: white;
+  width: 40%;
+  height: 35px;
+  border:6px solid #518D34;
+  background-color: #55BB25;
+  font-size: 22px;
+  margin: 1em 10em
+}
+button{
+  width: 10%;
+  height: 56px;
+  font-size: 22px;
+  border:8px solid #F7825E;
+  background-color: #AC3131;
+}

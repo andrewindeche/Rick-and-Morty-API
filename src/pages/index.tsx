@@ -1,6 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
+import NavigationBar from 'components/NavigationBar';
+import WordAnimations from 'components/WordAnimations';
+import SearchBar from 'components/SearchBar';
 const Home: React.FC = () => {
-    return <div>Hello, Next.js with TypeScript!</div>;
+  const handleSearch = (query: string) => {
+    console.log('Searching for:', query);
+  };
+    return (
+    <div>
+    <NavigationBar />
+    <WordAnimations />
+    <SearchBar onSearch={handleSearch} />
+    </div>
+    )
   };
   
   export default Home;
+  
