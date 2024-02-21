@@ -61,3 +61,34 @@ button:hover {
   margin: 9em;
   padding-left: 14em;
 }
+.Results{
+  display: grid;
+  margin: 1em 14em;
+  gap: 2em;
+  grid-template-columns: 1fr 1fr;
+}
+.species,.ResidentNumbers,.Location{
+  color: #AC3131;
+  font-size: large;
+}
+.Results > img {
+  border:8px solid black;
+}
+.ResultTally,.Episodes{
+  color:#55BB25;
+  font-size: x-large;
+}
+.ResultName{
+  font-size: x-large;
+}
+.name{
+  color: #AC3131;
+  font-size: xx-large;
+}
+.BeingType{
+  color:#55BB25;
+}
+.BeingType::before{
+  content: "• ";
+  font-size: large;
+}
