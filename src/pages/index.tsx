@@ -4,7 +4,7 @@ const Home: React.FC = () => {
     return (
     <div>
     <NavigationBar />
-    <div>Hello, Next.js with TypeScript!</div>
+    <div className="navigation">HALLOO!!! WELCOME TO RICK AND MORTY SEARCH ENGINE!</div>
     </div>
     )
   };

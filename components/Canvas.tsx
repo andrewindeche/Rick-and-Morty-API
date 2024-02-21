@@ -1,14 +1,16 @@
-import { useEffect } from 'react';
-
+import { useEffect, useRef } from 'react';
+import React from "react";
 const MyCanvas: React.FC = () => {
+  const imageRef = useRef<HTMLImageElement>(null);
+
   useEffect(() => {
     const cnv = document.getElementById("cnv") as HTMLCanvasElement;
     const ctx = cnv.getContext("2d");
     const W = window.innerWidth;
-    const H = window.innerHeight;
+    const H = window.innerHeight * 0.24;
 
     cnv.width = W;
-    cnv.height = H * 0.25;
+    cnv.height = H;
     ctx.fillStyle = "#112";
     ctx.fillRect(0, 0, W, H);
 
@@ -30,12 +32,38 @@ const MyCanvas: React.FC = () => {
 
     animate();
 
+    const fetchNewImage = async () => {
+      try {
+        const response = await fetch('https://rickandmortyapi.com/api/character/' + Math.floor(Math.random() * 671));
+        const data = await response.json();
+        const imageUrl = data.image;
+
+        if (imageRef.current) {
+          imageRef.current.src = imageUrl;
+        }
+      } catch (error) {
+        console.error('Error fetching image:', error);
+      }
+
+      setTimeout(fetchNewImage, 5000);
+    };
+
+    fetchNewImage();
+
     return () => {
     };
   }, []); 
 
   return (
+    <>
       <canvas id="cnv"></canvas>
+      <img
+        ref={imageRef}
+        src=""
+        alt="Rick and Morty"
+        style={{ position: 'absolute', left: '50%', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '150px', height: '120px',margin:'4em' }}
+      />
+    </>
   );
 };
 
