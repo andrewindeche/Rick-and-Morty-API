@@ -44,9 +44,6 @@ const Location: React.FC = () => {
         </div>
       </div>
         </div>
-        <Link href="/search">
-                <div>Go to Search</div>
-            </Link>
         </Layout>
         </>
     )

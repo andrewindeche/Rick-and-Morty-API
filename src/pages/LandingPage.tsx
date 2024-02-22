@@ -13,9 +13,6 @@ const LandingPage: React.FC = () => {
     <WordAnimations />
     <SearchBar onSearch={handleSearch} />
     <ImagePosters />
-            <Link href="/SearchResults">
-                <div>Go to Search</div>
-            </Link>
     </>
     )
 }

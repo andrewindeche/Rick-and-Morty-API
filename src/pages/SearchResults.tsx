@@ -24,9 +24,6 @@ const SearchResults: React.FC = () => {
         <div className="first-seen"><span className="label">FIRST SEEN IN</span><br/><span className="species">LAWNMOWER DOG</span></div>
       </div>
     </div>
-    <Link href="/LocationResults">
-                <div>Go to Search</div>
-            </Link>
     </Layout>
     </>
     )
