@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 interface SearchResultsProps {
   onSearch: (query: string, results: any[]) => void; 
 }
-const SearchResults: React.FC<SearchResultsProps> = ({ onSearch }) => {
+const SearchResults: React.FC<SearchResultsProps> = () => {
   const router = useRouter();
-    const { q, results } = router.query;
+    const { results } = router.query;
     const [searchResults, setSearchResults] = useState<{
       origin: any;
       residents: any;
@@ -20,8 +20,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({ onSearch }) => {
 }[]>([]);
 
     useEffect(() => {
-      const parsedResults = JSON.parse(results as string);
-      setSearchResults(parsedResults);
+      if (results) {
+        try {
+          const parsedResults = JSON.parse(results as string);
+          setSearchResults(parsedResults);
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+          setSearchResults([]);
+        }
+      }
   }, [results]);
 
 return(
