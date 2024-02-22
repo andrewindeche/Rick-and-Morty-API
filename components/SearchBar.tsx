@@ -24,7 +24,7 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
         type="text"
         placeholder="SEARCH FOR RICK AND MORTY CHARACTER"
         value={searchQuery}
-        onChange={handleInputChange}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <button type="submit">Search</button>
     </form>
