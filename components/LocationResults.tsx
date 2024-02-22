@@ -6,7 +6,7 @@ const Location: React.FC = () => {
           <div className="header">
         <div className="LocationHeader">LOCATION: <span className='headername'>EARTH</span></div>
         <div className="ResidentsHeader">RESIDENTS: <span className='headername'>826</span></div>
-      </div>
+          </div>
       <div className="results">5 RESULT FOR: <span className='PlanetName'>EARTH</span></div>
       <div className="cards">
         <div className="card">

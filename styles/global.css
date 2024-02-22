@@ -29,13 +29,19 @@ button:hover {
   }
 
 .BeingType::before{
-    content: "• ";
+    content: "•";
     font-size: large;
   }
   
 canvas {
     position: relative;
   }
+
+.card :hover {
+  border-color: #AC3131;
+  animation: glowing 20s linear infinite;
+  cursor: pointer;
+}
 
 .card > .description {
     color:#55BB25;
@@ -142,11 +148,11 @@ input{
   padding-left: 2em;
   font-size:larger
 }
-.search-form input:hover{
+.search-form input:hover {
   background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
   color:#55BB25;
-    cursor: pointer;
-    animation: glowing 20s linear infinite;
+  cursor: pointer;
+  animation: glowing 20s linear infinite;
 }
 
 .species,.ResidentNumbers,.Location{
