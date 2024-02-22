@@ -13,7 +13,7 @@ const Home: React.FC = () => {
     <div>
     <NavigationBar />
     <SearchBar onSearch={handleSearch} />
-    <LocationResults />
+    <SearchResults />
     </div>
     )
   };

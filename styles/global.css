@@ -123,6 +123,10 @@ input{
   word-spacing: 8px;
   padding: 8px;
 }
+.ResidentNumbers:hover{
+  color:#55BB25;
+  cursor: pointer;
+}
 
 .Results{
   display: grid;
