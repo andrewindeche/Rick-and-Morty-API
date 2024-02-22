@@ -57,7 +57,10 @@ canvas {
     margin: 1em 4em;
     grid-template-columns: repeat(4,1fr);
 }
-
+.headername {
+  font-size: 22px;
+  color: #AC3131;
+}
 .ImgContainer {
   display: flex;
   flex-direction: row;
@@ -85,10 +88,10 @@ input{
 }
 
 .LocationResults >.header {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15em;
 }
 
 .grid-container > .name {

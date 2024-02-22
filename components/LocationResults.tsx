@@ -4,8 +4,8 @@ const Location: React.FC = () => {
     return(
         <div className='LocationResults'>
           <div className="header">
-        <div className="location">LOCATION: EARTH</div>
-        <div className="residents">RESIDENTS: 826</div>
+        <div className="LocationHeader">LOCATION: <span className='headername'>EARTH</span></div>
+        <div className="ResidentsHeader">RESIDENTS: <span className='headername'>826</span></div>
       </div>
       <div className="results">5 RESULT FOR: <span className='PlanetName'>EARTH</span></div>
       <div className="cards">
