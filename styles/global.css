@@ -53,8 +53,8 @@ canvas {
 }
 .cards {
     display: grid;
-    padding: 4em 6em;
-    margin:1em 4em;
+    padding: 2em 6em;
+    margin: 1em 4em;
     grid-template-columns: repeat(4,1fr);
 }
 
@@ -84,7 +84,14 @@ input{
   padding: 0;
 }
 
-.grid-container > .name{
+.LocationResults >.header {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container > .name {
   color: #AC3131;
   font-size: xx-large;
 }
@@ -94,6 +101,17 @@ input{
   color:#F7825E;
   text-shadow: 1px 1px 2px black;
   text-align: center;
+}
+.PlanetName{
+  color: #AC3131;
+}
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#55BB25;
+  word-spacing: 8px;
 }
 
 .Results{

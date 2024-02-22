@@ -7,7 +7,7 @@ const Location: React.FC = () => {
         <div className="location">LOCATION: EARTH</div>
         <div className="residents">RESIDENTS: 826</div>
       </div>
-      <div className="results">5 RESULT FOR: EARTH</div>
+      <div className="results">5 RESULT FOR: <span className='PlanetName'>EARTH</span></div>
       <div className="cards">
         <div className="card">
           <img src="images/centaur.jpeg" alt="Centaur" />
