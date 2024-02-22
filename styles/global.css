@@ -43,10 +43,11 @@ canvas {
 
 .card > img {
     border:8px solid black;
+    width:50%
   }
 .cards {
     display: grid;
-    grid-gap: 4em;
+    padding: 4em;
     grid-template-columns: repeat(4,1fr);
 }
 
