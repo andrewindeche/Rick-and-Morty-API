@@ -3,7 +3,8 @@ import NavigationBar from 'components/NavigationBar';
 import WordAnimations from 'components/WordAnimations';
 import SearchBar from 'components/SearchBar';
 import ImagePosters from 'components/ImagePosters';
-import SearchResults from 'components/SearchResults'
+import SearchResults from 'components/SearchResults';
+import LocationResults from 'components/LocationResults';
 const Home: React.FC = () => {
   const handleSearch = (query: string) => {
     console.log('Searching for:', query);
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
     <div>
     <NavigationBar />
     <SearchBar onSearch={handleSearch} />
-    <SearchResults />
+    <LocationResults />
     </div>
     )
   };
