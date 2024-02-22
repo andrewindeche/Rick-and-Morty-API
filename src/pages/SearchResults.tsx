@@ -34,6 +34,20 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   function handleSearch(query: string, results: any[]): void {
     throw new Error('Function not implemented.');
   }
+  const extractEpisodeNumber = (episodeUrl: string) => {
+    const match = episodeUrl.match(/\/(\d+)$/);
+    return match ? match[1] : episodeUrl;
+  }
+
+  const getEpisodeNumber = (episodeUrls) => {
+    if (!episodeUrls || episodeUrls.length === 0) {
+      return null;
+    }
+    // Extract the episode number from the last URL in the array
+    const lastEpisodeUrl = episodeUrls[episodeUrls.length - 1];
+    const episodeNumber = lastEpisodeUrl.split('/').pop();
+    return episodeNumber;
+  };
 
 return(
   <>
@@ -46,12 +60,23 @@ return(
             src={character.image}
             alt={`Search Result ${index + 1}`} />
             <div className="grid-container">
-              <div className="title"><span className='ResultTally'>1 RESULT FOR</span> <span className="ResultName">{character.name}</span> <span className='Episodes'>{character.episode}</span></div><br />
+              <div className="title">
+                <span className='ResultTally'>1 RESULT FOR</span> 
+                <span className="ResultName">{character.name || 'Unknown'}</span>{" "}
+                <span className='Episodes'>Episode:{getEpisodeNumber(character.episode) || 'Unknown'}</span>
+              </div>
+              <br />
               <div className="name">{character.name}</div>
-              <div className="status"><span className="green-circle"></span><span className='BeingType'>{`${character.status} - ${character.species}`}</span></div><br />
-              <div className="location"><span className="label">LAST KNOWN LOCATION</span><br /><span className='Location'>{character.location.name}</span></div><br />
-              <div className="residents"><span className="label">RESIDENTS</span><br /><span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span></div><br />
-              <div className="first-seen"><span className="label">FIRST SEEN IN</span><br /><span className="species">{character.origin.name}</span>
+              <div className="status"><span className="green-circle"></span>
+              <span className='BeingType'>{`${character.status} - ${character.species}`}</span></div><br />
+              <div className="location"><span className="label">LAST KNOWN LOCATION</span><br />
+              <span className='Location'>{character.location.name}</span>
+              </div><br />
+              <div className="residents"><span className="label">RESIDENTS</span><br />
+              <span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span>
+              </div><br />
+              <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
+              <span className="species">{character.origin.name}</span>
               </div>
             </div>
             </div>
