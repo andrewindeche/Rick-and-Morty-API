@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from 'components/SearchBar';
 const SearchResults: React.FC = () => {
   const handleSearch = (query: string) => {
     console.log('Searching for:', query);
