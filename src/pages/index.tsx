@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationBar from 'components/NavigationBar';
-import LandingPage from 'components/LandingPage';
+import LandingPage from '@/pages/LandingPage';
 
 const Home: React.FC = () => {
   const handleSearch = (query: string) => {
