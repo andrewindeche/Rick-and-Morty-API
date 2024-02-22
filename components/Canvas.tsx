@@ -39,7 +39,6 @@ const MyCanvas: React.FC = () => {
     <>
       <canvas id="cnv"></canvas>
       <Link href="/">
-            <a></a>
       <img 
         src="images/Logo.jpg" 
         alt="Logo"

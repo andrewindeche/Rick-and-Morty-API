@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       try {
-        const response = await axios.get(`https://rickandmortyapi.com/api/character/1,183${encodeURIComponent(searchQuery)}`);
+        const response = await axios.get(`https://rickandmortyapi.com/api/character/2/?${encodeURIComponent(searchQuery)}`);
         onSearch(searchQuery, response.data.results);
         router.push({
             pathname: '/SearchResults',
