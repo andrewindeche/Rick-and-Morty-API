@@ -1,11 +1,14 @@
 import React from 'react';
 import SearchBar from 'components/SearchBar';
+import Layout from 'components/Layout';
+import Link from 'next/link';
 const SearchResults: React.FC = () => {
   const handleSearch = (query: string) => {
     console.log('Searching for:', query);
       };
     return(
       <>
+      <Layout>
       <SearchBar onSearch={handleSearch} />
       <div className="Results">
         <img
@@ -21,6 +24,10 @@ const SearchResults: React.FC = () => {
         <div className="first-seen"><span className="label">FIRST SEEN IN</span><br/><span className="species">LAWNMOWER DOG</span></div>
       </div>
     </div>
+    <Link href="/LocationResults">
+                <div>Go to Search</div>
+            </Link>
+    </Layout>
     </>
     )
 }

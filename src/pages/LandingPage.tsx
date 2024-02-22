@@ -2,6 +2,7 @@ import React from 'react';
 import WordAnimations from 'components/WordAnimations';
 import SearchBar from 'components/SearchBar';
 import ImagePosters from 'components/ImagePosters';
+import Link from 'next/link';
 
 const LandingPage: React.FC = () => {
     const handleSearch = (query: string) => {
@@ -12,6 +13,9 @@ const LandingPage: React.FC = () => {
     <WordAnimations />
     <SearchBar onSearch={handleSearch} />
     <ImagePosters />
+            <Link href="/SearchResults">
+                <div>Go to Search</div>
+            </Link>
     </>
     )
 }
