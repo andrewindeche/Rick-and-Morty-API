@@ -10,15 +10,66 @@ body {
     margin: 0;
   }
   
+button{
+    width: 10%;
+    height: 56px;
+    font-size: 22px;
+    border:8px solid #F7825E;
+    background-color: #AC3131;
+  }
+button:hover {
+    background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
+    color:#ffffff;
+    cursor: pointer;
+    animation: glowing 20s linear infinite;
+  }
+
+.BeingType{
+    color:#55BB25;
+  }
+
+.BeingType::before{
+    content: "• ";
+    font-size: large;
+  }
+  
 canvas {
     position: relative;
   }
-.navigation {
-  font-size: 40px;
-  color:#F7825E;
-  text-shadow: 1px 1px 2px black;
-  text-align: center;
+
+.card > .description {
+    color:#55BB25;
+    font-size: 14px
 }
+
+.card > img {
+    border:8px solid black;
+    width:50%
+  }
+
+.card > .name {
+    font-size: 22px;
+    color: #AC3131;
+}
+.cards {
+    display: grid;
+    padding: 2em 6em;
+    margin: 1em 4em;
+    grid-template-columns: repeat(4,1fr);
+}
+.headername {
+  font-size: 22px;
+  color: #AC3131;
+}
+.ImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10em;
+  margin: 9em;
+  padding-left: 14em;
+}
+
 input{
   color: white;
   width: 40%;
@@ -28,6 +79,63 @@ input{
   font-size: 22px;
   margin: 1em 10em
 }
+
+.location, .residents {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.LocationResults >.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15em;
+}
+
+.grid-container > .name {
+  color: #AC3131;
+  font-size: xx-large;
+}
+
+.navigation {
+  font-size: 40px;
+  color:#F7825E;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+.PlanetName{
+  color: #AC3131;
+}
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#55BB25;
+  word-spacing: 8px;
+}
+
+.Results{
+  display: grid;
+  margin: 1em 14em;
+  gap: 2em;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.Results > img {
+  border:8px solid black;
+}
+
+.ResultName{
+  font-size: x-large;
+}
+.ResultTally,.Episodes{
+  color:#55BB25;
+  font-size: x-large;
+}
+
 .search-form input::placeholder {
   color: #ffffff; 
   transform: rotate(1deg); 
@@ -40,55 +148,8 @@ input{
     cursor: pointer;
     animation: glowing 20s linear infinite;
 }
-button{
-  width: 10%;
-  height: 56px;
-  font-size: 22px;
-  border:8px solid #F7825E;
-  background-color: #AC3131;
-}
-button:hover {
-  background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
-  color:#ffffff;
-    cursor: pointer;
-    animation: glowing 20s linear infinite;
-}
-.ImgContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10em;
-  margin: 9em;
-  padding-left: 14em;
-}
-.Results{
-  display: grid;
-  margin: 1em 14em;
-  gap: 2em;
-  grid-template-columns: 1fr 1fr;
-}
+
 .species,.ResidentNumbers,.Location{
   color: #AC3131;
-  font-size: large;
-}
-.Results > img {
-  border:8px solid black;
-}
-.ResultTally,.Episodes{
-  color:#55BB25;
-  font-size: x-large;
-}
-.ResultName{
-  font-size: x-large;
-}
-.name{
-  color: #AC3131;
-  font-size: xx-large;
-}
-.BeingType{
-  color:#55BB25;
-}
-.BeingType::before{
-  content: "• ";
   font-size: large;
 }
