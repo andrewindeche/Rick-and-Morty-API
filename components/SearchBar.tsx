@@ -11,6 +11,7 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
+        router.push(`/SearchResults?q=${encodeURIComponent(searchQuery)}`);
       };
     
       const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
