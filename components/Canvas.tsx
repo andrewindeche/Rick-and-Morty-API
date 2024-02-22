@@ -40,7 +40,7 @@ const MyCanvas: React.FC = () => {
       <img 
         src="images/Logo.jpg" 
         alt="Logo"
-        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '150px', height: '104px',margin:'3.8em 5em 2em' }}
+        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '150px', height: '106px',margin:'3.8em 5em 2em' }}
        />
     </>
   );
