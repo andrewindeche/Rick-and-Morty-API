@@ -40,7 +40,7 @@ return(
     <Layout>
       <SearchBar onSearch={handleSearch}/>
       <div className="Results">
-        {searchResults.map((character, index) =>(
+        {searchResults.slice(0, 1).map((character, index) =>(
         <div key={index}>
         <img
             src={character.image}
