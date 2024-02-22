@@ -2,23 +2,22 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import axios from  'axios';
 
-interface SearchFormProps {
-    onSearch: (query: string) => void;
+interface SearchBarProps {
+    onSearch: (query: string, results: any[]) => void;
 }
 
-const SearchBar: React.FC = ({ onSearch, ...props}) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const router = useRouter();
 
     const handleSearch = async () => {
       try {
-        const response = await 
-          axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
-          router.push({
+        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
+        onSearch(searchQuery, response.data.results);
+        router.push({
             pathname: '/search-results',
             query: {
                 q: searchQuery,
-                results: JSON.stringify(response.data.results),
             },
         });
       } catch (error) {
@@ -32,7 +31,7 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
     
       const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onSearch(searchQuery);
+        handleSearch();
       };
     return(
     <form onSubmit={handleSubmit} className="search-form">
@@ -40,9 +39,9 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
         type="text"
         placeholder="SEARCH FOR RICK AND MORTY CHARACTER"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={handleInputChange}
       />
-      <button onClick={handleInputChange}>Search</button>
+      <button onClick={handleSearch}>Search</button>
     </form>
     )
 }

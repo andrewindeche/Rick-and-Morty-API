@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
 const SearchResults: React.FC = () => {
   const router = useRouter();
-    const { q } = router.query;
+    const { q, results } = router.query;
+    const [searchResults, setSearchResults] = useState([]);
+
+    useEffect(() => {
+      const parsedResults = JSON.parse(results as string);
+      setSearchResults(parsedResults);
+  }, [results]);
+
     return(
       <>
       <Layout>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar />
       <div className="Results">
         <img
         src="images/chudking.jpg"
