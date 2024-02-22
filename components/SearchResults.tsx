@@ -1,7 +1,12 @@
 import React from 'react';
-
+import SearchBar from './SearchBar';
 const SearchResults: React.FC = () => {
+  const handleSearch = (query: string) => {
+    console.log('Searching for:', query);
+      };
     return(
+      <>
+      <SearchBar onSearch={handleSearch} />
       <div className="Results">
         <img
         src="images/chudking.jpg"
@@ -16,6 +21,7 @@ const SearchResults: React.FC = () => {
         <div className="first-seen"><span className="label">FIRST SEEN IN</span><br/><span className="species">LAWNMOWER DOG</span></div>
       </div>
     </div>
+    </>
     )
 }
 

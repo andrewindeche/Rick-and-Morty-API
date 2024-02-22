@@ -1,7 +1,12 @@
 import React from 'react';
-
+import SearchBar from 'components/SearchBar';
 const Location: React.FC = () => {
+  const handleSearch = (query: string) => {
+  console.log('Searching for:', query);
+  };
     return(
+      <>
+      <SearchBar onSearch={handleSearch} />
         <div className='LocationResults'>
           <div className="header">
         <div className="LocationHeader">LOCATION: <span className='headername'>EARTH</span></div>
@@ -36,6 +41,7 @@ const Location: React.FC = () => {
         </div>
       </div>
         </div>
+        </>
     )
 }
 export default Location;
