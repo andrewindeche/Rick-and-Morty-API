@@ -61,7 +61,7 @@ return(
             alt={`Search Result ${index + 1}`} />
             <div className="grid-container">
               <div className="title">
-                <span className='ResultTally'>1 RESULT FOR</span> 
+                <span className='ResultTally'>1 RESULT FOR</span> . 
                 <span className="ResultName">{character.name || 'Unknown'}</span>{" "}
                 <span className='Episodes'>Episode:{getEpisodeNumber(character.episode) || 'Unknown'}</span>
               </div>

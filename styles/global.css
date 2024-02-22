@@ -108,6 +108,10 @@ input{
   font-size: xx-large;
 }
 
+.grid-container > .title {
+  word-spacing: 8px;
+}
+
 .navigation {
   font-size: 40px;
   color:#F7825E;
