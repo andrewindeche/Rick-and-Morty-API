@@ -31,10 +31,14 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
       }
   }, [results]);
 
+  function handleSearch(query: string, results: any[]): void {
+    throw new Error('Function not implemented.');
+  }
+
 return(
   <>
     <Layout>
-      <SearchBar />
+      <SearchBar onSearch={handleSearch}/>
       <div className="Results">
         {searchResults.map((character, index) =>(
         <div key={index}>
@@ -46,7 +50,7 @@ return(
               <div className="name">{character.name}</div>
               <div className="status"><span className="green-circle"></span><span className='BeingType'>{`${character.status} - ${character.species}`}</span></div><br />
               <div className="location"><span className="label">LAST KNOWN LOCATION</span><br /><span className='Location'>{character.location.name}</span></div><br />
-              <div className="residents"><span className="label">RESIDENTS</span><br /><span className="ResidentNumbers">{character.residents.length}</span></div><br />
+              <div className="residents"><span className="label">RESIDENTS</span><br /><span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span></div><br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br /><span className="species">{character.origin.name}</span>
               </div>
             </div>

@@ -12,13 +12,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       try {
-        const response = await axios.get(`https://rickandmortyapi.com/api/character/2/?${encodeURIComponent(searchQuery)}`);
+        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
         onSearch(searchQuery, response.data.results);
         router.push({
             pathname: '/SearchResults',
-            query: {
-                q: searchQuery,
-            },
+            query: { results: JSON.stringify(response.data.results) }
         });
       } catch (error) {
         console.error('Error fetching data:', error);
