@@ -26,7 +26,7 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <button type="submit">Search</button>
+      <button onClick={handleInputChange}>Search</button>
     </form>
     )
 }

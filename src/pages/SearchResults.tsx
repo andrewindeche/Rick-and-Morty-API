@@ -1,11 +1,10 @@
 import React from 'react';
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 const SearchResults: React.FC = () => {
-  const handleSearch = (query: string) => {
-    console.log('Searching for:', query);
-      };
+  const router = useRouter();
+    const { q } = router.query;
     return(
       <>
       <Layout>
