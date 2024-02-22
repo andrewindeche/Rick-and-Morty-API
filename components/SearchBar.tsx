@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useRouter } from 'next/router';
 
 interface SearchFormProps {
     onSearch: (query: string) => void;
@@ -6,6 +7,7 @@ interface SearchFormProps {
 
 const SearchBar: React.FC = ({ onSearch, ...props}) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const router = useRouter();
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
