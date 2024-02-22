@@ -38,16 +38,23 @@ canvas {
   }
 
 .card > .description {
-    color:#55BB25
+    color:#55BB25;
+    font-size: 14px
 }
 
 .card > img {
     border:8px solid black;
     width:50%
   }
+
+.card > .name {
+    font-size: 22px;
+    color: #AC3131;
+}
 .cards {
     display: grid;
-    padding: 4em;
+    padding: 4em 6em;
+    margin:1em 4em;
     grid-template-columns: repeat(4,1fr);
 }
 
@@ -77,7 +84,7 @@ input{
   padding: 0;
 }
 
-.name{
+.grid-container > .name{
   color: #AC3131;
   font-size: xx-large;
 }
