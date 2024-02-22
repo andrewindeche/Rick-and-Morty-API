@@ -1,5 +1,4 @@
 import React from 'react';
-import NavigationBar from 'components/NavigationBar';
 import LandingPage from '@/pages/LandingPage';
 import Layout from 'components/Layout';
 
