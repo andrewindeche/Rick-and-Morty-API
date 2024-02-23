@@ -12,16 +12,26 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       try {
-        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
-        onSearch(searchQuery, response.data.results);
-        router.push({
-            pathname: '/SearchResults',
-            query: { results: JSON.stringify(response.data.results) }
-        });
-        setSearchQuery('');
+        const response = await axios.get(`https://rickandmortyapi.com/api/location/?name=${encodeURIComponent(searchQuery)}`);
+          if(response.data.results.length > 0){
+            onSearch(searchQuery, response.data.results);
+            router.push({
+              pathname: '/Location',
+              query: { results: JSON.stringify(response.data.results) }
+            });
+          }
       } catch (error) {
         console.error('Error fetching data:', error);
-    }
+      }finally{
+        const characterResponse = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
+        onSearch(searchQuery, characterResponse.data.results);
+        router.push({
+            pathname: '/SearchResults',
+            query: { results: JSON.stringify(characterResponse.data.results) }
+        
+        });
+        setSearchQuery('');
+      } 
     }
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
@@ -35,7 +45,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     <form onSubmit={handleSubmit} className="search-form">
       <input
         type="text"
-        placeholder="SEARCH FOR RICK AND MORTY CHARACTER"
+        placeholder="SEARCH FOR CHARACTER,LOCATION OR EPISODE"
         value={searchQuery}
         onChange={handleInputChange}
       />
