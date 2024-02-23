@@ -43,7 +43,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     if (!episodeUrls || episodeUrls.length === 0) {
       return null;
     }
-    // Extract the episode number from the last URL in the array
     const lastEpisodeUrl = episodeUrls[episodeUrls.length - 1];
     const episodeNumber = lastEpisodeUrl.split('/').pop();
     return episodeNumber;
@@ -55,10 +54,12 @@ return(
       <SearchBar onSearch={handleSearch}/>
       <div className="SearchResults">
         {searchResults.slice(0, 1).map((character, index) =>(
-        <div className="grid-container" key={index}>
+        
+          <div className='key' key={index}>
             <img
             src={character.image}
             alt={`Search Result ${index + 1}`} />
+        <div className="grid-container" >
               <div className="title">
                 <span className='ResultTally'>1 RESULT FOR</span> . 
                 <span className="ResultName">{character.name || 'Unknown'}</span>{" "}
@@ -80,6 +81,7 @@ return(
               <br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
               <span className="species">{character.origin.name}</span>
+              </div>
               </div>
             </div>
         ))}
