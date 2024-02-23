@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
-import Link from 'next/link';
+import axios from 'axios';
 const Location: React.FC = () => {
+  const [locationDetails, setLocationDetails] = useState<any>({});
+  const [residents, setResidents] = useState<any[]>([]);
+
+  
   const handleSearch = (query: string) => {
   console.log('Searching for:', query);
   };
