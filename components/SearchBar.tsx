@@ -12,18 +12,34 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       try {
-        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
-        onSearch(searchQuery, response.data.results);
+        const characterResponse = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
+        onSearch(searchQuery, characterResponse.data.results);
         router.push({
             pathname: '/SearchResults',
-            query: { results: JSON.stringify(response.data.results) }
-        
+            query: { results: JSON.stringify(characterResponse.data.results) }
         });
         setSearchQuery('');
-      } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-    }
+      } catch (characterError) {
+        console.error('Error fetching data:', characterError);
+    } try {
+        const locationResponse = await axios.get(`https://rickandmortyapi.com/api/location/?name=${encodeURIComponent(searchQuery)}`);
+        if (locationResponse.data.results.length > 0) {
+          onSearch(searchQuery, locationResponse.data.results);
+          const characterPromises = locationResponse.data.results[0]?.residents.map((resident: string) => axios.get(resident));
+          const characterResponses = await Promise.all(characterPromises);
+          const characterData = characterResponses.map((characterResponse: any) => characterResponse.data);
+          router.push({
+            pathname: '/LocationResults',
+            query: { 
+              results: JSON.stringify(locationResponse.data.results),
+              characters: JSON.stringify(characterData)
+            }
+          });
+        }
+      }catch (locationError) {
+        console.error('Error fetching data:', locationError);
+      } 
+    };
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
       };

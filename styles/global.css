@@ -185,18 +185,37 @@ input{
   color: #AC3131;
   font-size: large;
 }
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+    body {
+      overflow: hidden;
+    }
     canvas#cnv {
       height: 15em
     }
     .navigation{
       font-size: 4em;
-      text-align: right;
+      display:flex;
+      text-align: center;
+      align-items: center;
+      gap: 10px;
+      margin: 8px
     }
-    #Logo{
-      width: 15em !important;
-      height: 14em !important;
-      margin: 7.5em 8em !important;
+    .search-form input{
+      width:23em;
+      height: 4em;
+      margin: 1em 18em;
     }
-    
+    button {
+      width:6em;
+      height:2em;
+      font-size: 3em;
+      margin: 3em 10em;
+    }
+    .cards {
+      display: grid;
+      padding: 2em 6em;
+      margin: 1em 4em;
+      grid-template-columns: repeat(4,1fr);
+    }
   }
+ 
