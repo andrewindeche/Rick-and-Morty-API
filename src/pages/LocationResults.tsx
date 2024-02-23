@@ -1,7 +1,15 @@
 import React from 'react';
-
+import SearchBar from 'components/SearchBar';
+import Layout from 'components/Layout';
+import Link from 'next/link';
 const Location: React.FC = () => {
+  const handleSearch = (query: string) => {
+  console.log('Searching for:', query);
+  };
     return(
+      <>
+      <Layout>
+      <SearchBar onSearch={handleSearch} />
         <div className='LocationResults'>
           <div className="header">
         <div className="LocationHeader">LOCATION: <span className='headername'>EARTH</span></div>
@@ -36,6 +44,8 @@ const Location: React.FC = () => {
         </div>
       </div>
         </div>
+        </Layout>
+        </>
     )
 }
 export default Location;

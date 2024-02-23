@@ -1,5 +1,6 @@
 import { useEffect} from 'react';
 import React from "react";
+import Link from 'next/link';
 const MyCanvas: React.FC = () => {
   useEffect(() => {
     const cnv = document.getElementById("cnv") as HTMLCanvasElement;
@@ -37,11 +38,13 @@ const MyCanvas: React.FC = () => {
   return (
     <>
       <canvas id="cnv"></canvas>
+      <Link href="/">
       <img 
         src="images/Logo.jpg" 
         alt="Logo"
-        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '150px', height: '104px',margin:'3.8em 5em 2em' }}
+        style={{ position: 'absolute', left: '0', top: '0',transform: 'translate(-50%, -50%)', border:'8px solid #55BB25', width: '150px', height: '106px',margin:'3.8em 5em 2em' }}
        />
+      </Link>
     </>
   );
 };

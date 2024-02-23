@@ -1,19 +1,35 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useRouter } from 'next/router';
+import axios from  'axios';
 
-interface SearchFormProps {
-    onSearch: (query: string) => void;
+interface SearchBarProps {
+    onSearch: (query: string, results: any[]) => void;
 }
 
-const SearchBar: React.FC = ({ onSearch, ...props}) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const router = useRouter();
 
+    const handleSearch = async () => {
+      try {
+        const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
+        onSearch(searchQuery, response.data.results);
+        router.push({
+            pathname: '/SearchResults',
+            query: { results: JSON.stringify(response.data.results) }
+        });
+        setSearchQuery('');
+      } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+    }
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
       };
     
       const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onSearch(searchQuery);
+        handleSearch();
       };
     return(
     <form onSubmit={handleSubmit} className="search-form">
@@ -23,7 +39,7 @@ const SearchBar: React.FC = ({ onSearch, ...props}) => {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <button type="submit">Search</button>
+      <button onClick={handleSearch}>Search</button>
     </form>
     )
 }

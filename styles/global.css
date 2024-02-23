@@ -8,6 +8,9 @@
 
 body {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   
 button{
@@ -63,6 +66,7 @@ canvas {
     margin: 1em 4em;
     grid-template-columns: repeat(4,1fr);
 }
+
 .headername {
   font-size: 22px;
   color: #AC3131;
@@ -104,6 +108,17 @@ input{
   color: #AC3131;
   font-size: xx-large;
 }
+.SearchResults {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3em
+}
+
+.SearchResults img {
+  border:8px solid black;
+  width:35%;
+}
 
 .navigation {
   font-size: 40px;
@@ -123,8 +138,15 @@ input{
   word-spacing: 8px;
   padding: 8px;
 }
+.species:hover{
+  color:#55BB25;
+  cursor: pointer;
+}
+.grid-container {
+  float: right;
+}
 
-.Results{
+.Results {
   display: grid;
   margin: 1em 14em;
   gap: 2em;
@@ -154,6 +176,9 @@ input{
   color:#55BB25;
   cursor: pointer;
   animation: glowing 20s linear infinite;
+}
+.search-results title {
+    margin: 21em;
 }
 
 .species,.ResidentNumbers,.Location{
