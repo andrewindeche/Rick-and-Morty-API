@@ -27,6 +27,8 @@ const Location: React.FC = () => {
     return(
       <>
       <Layout>
+      <div className="wrapper">
+      <div className="page">
       <SearchBar onSearch={handleSearch} />
         <div className='LocationResults'>
         {locationName && (
@@ -50,6 +52,8 @@ const Location: React.FC = () => {
               <div className="description">{character.status} - ${character.species}</div>
             </div>
           ))}
+        </div>
+        </div>
         </div>
         </div>
         </Layout>

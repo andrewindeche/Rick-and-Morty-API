@@ -185,6 +185,14 @@ input{
   color: #AC3131;
   font-size: large;
 }
+.wrapper {
+  overflow: hidden;
+  height: 100vh;
+}
+.page {
+  overflow: auto;
+  height: 100%;
+}
 @media only screen and (min-width: 320px) and (max-width: 425px) {
     body {
       overflow: hidden;
