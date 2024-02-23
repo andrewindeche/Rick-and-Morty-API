@@ -69,7 +69,7 @@ Run `touch component.tsx` to generate a new component. The pages are located in 
 
 ## Build
 
-Run `next build` to build the project. The build artifacts will be stored in the `.next` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `.next` directory.
 
 ## Run Linter
 
