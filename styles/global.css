@@ -185,3 +185,18 @@ input{
   color: #AC3131;
   font-size: large;
 }
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    canvas#cnv {
+      height: 15em
+    }
+    .navigation{
+      font-size: 4em;
+      text-align: right;
+    }
+    #Logo{
+      width: 15em !important;
+      height: 14em !important;
+      margin: 7.5em 8em !important;
+    }
+    
+  }
