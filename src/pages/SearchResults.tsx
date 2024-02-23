@@ -28,12 +28,14 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
           console.error('Error parsing JSON:', error);
           setSearchResults([]);
         }
+      } else {
+        setSearchResults([]);
       }
   }, [results]);
 
-  function handleSearch(query: string, results: any[]): void {
-    throw new Error('Function not implemented.');
-  }
+  const handleSearch = (query: string, results: any[]) => {
+    setSearchResults(results);
+  };
   const extractEpisodeNumber = (episodeUrl: string) => {
     const match = episodeUrl.match(/\/(\d+)$/);
     return match ? match[1] : episodeUrl;

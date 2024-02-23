@@ -110,10 +110,9 @@ input{
 }
 .SearchResults {
   display: flex;
-  grid-template-columns: repeat(2,1fr);
   justify-content: center;
   align-items: center;
-  margin: 2em
+  margin: 3em
 }
 
 .SearchResults img {

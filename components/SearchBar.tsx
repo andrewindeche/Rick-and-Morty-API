@@ -18,6 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             pathname: '/SearchResults',
             query: { results: JSON.stringify(response.data.results) }
         });
+        setSearchQuery('');
       } catch (error) {
         console.error('Error fetching data:', error);
     }
