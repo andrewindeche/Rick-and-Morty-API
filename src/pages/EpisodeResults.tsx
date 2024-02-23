@@ -8,21 +8,14 @@ const Episode: React.FC = () => {
     const [episodeName, setEpisodeName] = useState<string | null>(null);
     const [characters, setCharacters] = useState<any[]>([]);
 
-    const handleSearch = async(query: string)  => {
+    const handleSearch = async(query: string, results: any[])  => {
         try {
-          const response = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(query)}`);
-          setEpisodeResults(response.data.results);
-          setEpisodeName(query);
-    
-          const characterPromises = response.data.results[0]?.residents.map((resident: string) => axios.get(resident));
-          const characterResponses = await Promise.all(characterPromises);
-          const characterData = characterResponses.map((characterResponse: any) => characterResponse.data);
-          setCharacters(characterData);
+            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/${episodeId}`);
+            const { episode, season, name, characters: episodeCharacters } = episodeResponse.data;
+            console.log(`Season ${season}, Episode ${episode}: ${name}`);
+            setCharacters(episodeCharacters);
         } catch (error) {
-          console.error('Error fetching location data:', error);
-          setEpisodeResults([]);
-          setEpisodeName(null);
-          setCharacters([]);
+            console.error('Error fetching episode details:', error);
         }
       };
   

@@ -38,7 +38,18 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         }
       }catch (locationError) {
         console.error('Error fetching data:', locationError);
-      } 
+      } try{
+        const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/${episodeId}`);
+        if (episodeResponse.data.results.length > 0) {
+          onSearch(searchQuery, episodeResponse.data.results);
+          router.push({
+            pathname: '/EpisodeResults',
+            query: { results: JSON.stringify(episodeResponse.data.results) }
+          });
+        }
+      } catch(episodeError){
+        console.error('Error fetching episode data:', episodeError);
+      }
     };
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
