@@ -53,13 +53,12 @@ return(
   <>
     <Layout>
       <SearchBar onSearch={handleSearch}/>
-      <div className="Results">
+      <div className="SearchResults">
         {searchResults.slice(0, 1).map((character, index) =>(
-        <div key={index}>
-        <img
+        <div className="grid-container" key={index}>
+            <img
             src={character.image}
             alt={`Search Result ${index + 1}`} />
-            <div className="grid-container">
               <div className="title">
                 <span className='ResultTally'>1 RESULT FOR</span> . 
                 <span className="ResultName">{character.name || 'Unknown'}</span>{" "}
@@ -68,17 +67,20 @@ return(
               <br />
               <div className="name">{character.name}</div>
               <div className="status"><span className="green-circle"></span>
-              <span className='BeingType'>{`${character.status} - ${character.species}`}</span></div><br />
+              <span className='BeingType'>{`${character.status} - ${character.species}`}</span>
+              </div>
+              <br />
               <div className="location"><span className="label">LAST KNOWN LOCATION</span><br />
               <span className='Location'>{character.location.name}</span>
-              </div><br />
+              </div>
+              <br />
               <div className="residents"><span className="label">RESIDENTS</span><br />
               <span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span>
-              </div><br />
+              </div>
+              <br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
               <span className="species">{character.origin.name}</span>
               </div>
-            </div>
             </div>
         ))}
     </div>

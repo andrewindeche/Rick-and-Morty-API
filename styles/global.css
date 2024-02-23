@@ -10,7 +10,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
   }
   
 button{
@@ -66,6 +65,10 @@ canvas {
     margin: 1em 4em;
     grid-template-columns: repeat(4,1fr);
 }
+
+.grid-container {
+  margin: 2em 14em;
+}
 .headername {
   font-size: 22px;
   color: #AC3131;
@@ -108,8 +111,9 @@ input{
   font-size: xx-large;
 }
 
-.grid-container > .title {
-  word-spacing: 8px;
+.grid-container img {
+  border:8px solid black;
+  width:30%;
 }
 
 .navigation {
@@ -130,7 +134,7 @@ input{
   word-spacing: 8px;
   padding: 8px;
 }
-.ResidentNumbers:hover{
+.species:hover{
   color:#55BB25;
   cursor: pointer;
 }
