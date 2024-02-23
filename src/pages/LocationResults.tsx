@@ -38,7 +38,7 @@ const Location: React.FC = () => {
           {locationResults.length > 0 ? (
         <div className="results">{locationResults.length} RESULT FOR: <span className='PlanetName'>{locationName}</span></div>
         ) : (
-          <div className="results">No results found for: <span className='PlanetName'>{locationName}</span></div>
+          <div className="results">No results found <span className='PlanetName'>{locationName}</span></div>
         )}
       <div className="cards">
           {characters.map((character, index) => (
