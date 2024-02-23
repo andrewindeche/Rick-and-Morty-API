@@ -41,14 +41,16 @@ const Location: React.FC = () => {
           <div className="results">No results found for: <span className='PlanetName'>{locationName}</span></div>
         )}
       <div className="cards">
-      {locationResults.map((location, index) => (
-        <div className="card" key={index}>
-          <img src="images/centaur.jpeg" alt="Centaur" />
-          <div className="name">CENTAUR</div>
-          <div className="description">ALIVE - MYTHOLOGICAL CREATURE</div>
+          {characters.map((character, index) => (
+            <div className="card" key={index}>
+              <img src={character.image} alt={character.name} />
+              <div className="name">{character.name}</div>
+              <div className="dimension">{character.dimension}</div>
+              <div className="origin">{character.origin.name}</div>
+              <div className="description">{character.status} - ${character.species}</div>
+            </div>
+          ))}
         </div>
-        ))}
-      </div>
         </div>
         </Layout>
         </>
