@@ -97,7 +97,7 @@ input{
   padding: 0;
 }
 
-.LocationResults >.header {
+.LocationResults >.header, .EpisodeResults >.header {
   display: flex;
   justify-content: center;
   align-items: center;
