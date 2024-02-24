@@ -36,10 +36,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
   const handleSearch = (query: string, results: any[]) => {
     setSearchResults(results);
   };
-  const extractEpisodeNumber = (episodeUrl: string) => {
-    const match = episodeUrl.match(/\/(\d+)$/);
-    return match ? match[1] : episodeUrl;
-  }
 
   const getEpisodeNumber = (episodeUrls) => {
     if (!episodeUrls || episodeUrls.length === 0) {
