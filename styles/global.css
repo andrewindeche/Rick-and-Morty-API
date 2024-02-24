@@ -97,7 +97,7 @@ input{
   padding: 0;
 }
 
-.LocationResults >.header {
+.LocationResults >.header, .EpisodeResults >.header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,14 +193,14 @@ input{
   overflow: auto;
   height: 100%;
 }
-@media only screen and (min-width: 320px) and (max-width: 425px) {
+@media only screen and (min-width: 320px) and (max-width: 500px) {
     body {
       overflow: hidden;
     }
     canvas#cnv {
       height: 15em
     }
-    .navigation{
+    .navigation {
       font-size: 4em;
       display:flex;
       text-align: center;
@@ -209,21 +209,62 @@ input{
       margin: 8px
     }
     .search-form input{
-      width:23em;
-      height: 4em;
-      margin: 1em 18em;
+      width:22em;
+      height: 5em;
+      margin: 1em 2em;
+      font-size: xx-large;
+    }
+    .search-form {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
     }
     button {
       width:6em;
-      height:2em;
+      height:4em;
       font-size: 3em;
-      margin: 3em 10em;
+      margin: 0.5em 1em;
     }
     .cards {
       display: grid;
-      padding: 2em 6em;
-      margin: 1em 4em;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: max-content;
+    }
+    .ImgContainer {
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  @media only screen and (min-width: 600px) and (max-width: 1000px) {
+    body {
+      font-size: 16px; 
+    }
+    .ImgContainer {
+      padding: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    button{
+      padding: 2em 3em 3em 3em;
+      font-size: 20px;
+      color:white;
+      margin: 1.4em 1em;
+    }
+    .search-form {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    .search-form input{
+      width:22em;
+      height: 5em;
+      margin: 1em 12em;
+    }
+    .navigation{
+      display:flex;
+      text-align: center;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      margin: 1em 7em;
     }
   }
  
