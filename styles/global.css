@@ -210,9 +210,9 @@ input{
     }
     .search-form input{
       width:22em;
-      height: 5em;
+      height: 4em;
       margin: 1em 2em;
-      font-size: xx-large;
+      font-size: 2em !important;
     }
     .search-form {
       display:grid;
@@ -228,13 +228,31 @@ input{
       display: grid;
       grid-template-rows: max-content;
     }
+    .grid-container {
+      font-size: 40px;
+      display: flex;
+      gap:12px
+    }
     .ImgContainer {
       display:flex;
       flex-direction: column;
       justify-content: space-between;
     }
+    .Location, .species{
+      font-size: xx-large;
+    }
+    .SearchResults img{
+      width: 20em;
+      margin: 6em;
+      
+    }
+    .SearchResults{
+      font-size: x-large !important;
+      display: flex;
+      justify-content: space-between;
+    }
   }
-  @media only screen and (min-width: 600px) and (max-width: 1000px) {
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
     body {
       font-size: 16px; 
     }
