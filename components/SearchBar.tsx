@@ -29,6 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         setSearchQuery('');
       } catch (characterError) {
         console.error('Error fetching character data:', characterError);
+        setIsValidQuery(false);
       }finally {
         setSearching(false); 
       }
@@ -74,7 +75,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           return;
       }
       setIsValidQuery(true);
-    handleSearch();
+      handleSearch();
   };
     return(
     <form onSubmit={handleSubmit} className={`search-form ${isValidQuery ? '' : 'invalid'}`}>
