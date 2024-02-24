@@ -52,6 +52,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             )}
           </div>
           <div className="notes-section">
+            <p>Notes </p>
           {postedNotes.map((postedNote, index) => (
             <div key={index} className="posted-note">
               {postedNote}
@@ -63,7 +64,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
           value={note}
           onChange={(e) => setNote(e.target.value)}
         />
-        <button onClick={handlePostNote}>Post Note</button>
+        <button className='post-button' onClick={handlePostNote}>Post Note</button>
         <button className="close-button" onClick={onClose}>
           Close
         </button>
