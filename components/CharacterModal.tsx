@@ -31,6 +31,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
           <div className="details">
           {character && ( 
             <>
+            <span className="ResultName">{character.name || 'Unknown'}</span>
             <div className="detail-row">
               <span className="label">Last Known Location:</span>
               <span className="value">{character.location.name}</span>
@@ -51,26 +52,24 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             )}
           </div>
           <div className="notes-section">
-            <textarea
-              placeholder="Add notes about the character..."
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-            />
-            <button onClick={handlePostNote}>Post Note</button>
-            <div className="posted-notes">
-              {postedNotes.map((postedNote, index) => (
-                <div key={index} className="posted-note">
-                  {postedNote}
-                </div>
-              ))}
+          {postedNotes.map((postedNote, index) => (
+            <div key={index} className="posted-note">
+              {postedNote}
             </div>
-          </div>
-          <button className="close-button" onClick={onClose}>
-            Close
-          </button>
+          ))}
         </div>
+        <textarea
+          placeholder="Add notes about the character..."
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        />
+        <button onClick={handlePostNote}>Post Note</button>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
       </div>
-    )
-}
+      </div>
+    );
+};
 
 export default CharacterModal;

@@ -10,7 +10,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
   }
   
 button{
@@ -40,8 +39,8 @@ canvas {
     position: relative;
   }
 
-.card :hover {
-  border-color: #AC3131;
+.SearchResults img:hover {
+  border-color: red;
   animation: glowing 20s linear infinite;
   cursor: pointer;
 }
@@ -67,6 +66,17 @@ canvas {
     grid-template-columns: repeat(4,1fr);
 }
 
+.ResultName{
+  color: #AC3131;
+}
+
+.details{
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+}
+.value{
+  color: #AC3131;
+}
 .headername {
   font-size: 22px;
   color: #AC3131;
@@ -103,7 +113,16 @@ input{
   align-items: center;
   gap: 15em;
 }
-
+.modal-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  border:8px solid black;
+  column-gap: 1px;
+}
+.modal-content >img{
+  border:8px solid black;
+  margin: 0 auto;
+}
 .grid-container > .name {
   color: #AC3131;
   font-size: xx-large;

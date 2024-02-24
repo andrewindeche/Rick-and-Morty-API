@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   };
     return (
       <Layout>
-        <LandingPage />
+        <LandingPage/>
     </Layout>
     )
   };
