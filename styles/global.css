@@ -209,21 +209,24 @@ input{
       margin: 8px
     }
     .search-form input{
-      width:23em;
-      height: 4em;
-      margin: 1em 18em;
+      width:22em;
+      height: 5em;
+      margin: 1em 2em;
+      font-size: xx-large;
+    }
+    .search-form {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
     }
     button {
       width:6em;
-      height:2em;
+      height:4em;
       font-size: 3em;
-      margin: 3em 10em;
+      margin: 0.5em 1em;
     }
     .cards {
       display: grid;
-      padding: 2em 6em;
-      margin: 1em 4em;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: max-content;
     }
   }
  

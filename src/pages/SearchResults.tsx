@@ -73,9 +73,12 @@ return(
               <span className='BeingType'>{`${character.status} - ${character.species}`}</span>
               </div>
               <br />
-              <div className="location"><span className="label">LAST KNOWN LOCATION</span><br />
+              <div className="location">
+                <span className="label">LAST KNOWN LOCATION</span><br />
+                  {character.location && (
               <span className='Location'>{character.location.name}</span>
-              </div>
+                      )}
+                    </div>
               <br />
               <div className="residents"><span className="label">RESIDENTS</span><br />
               <span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span>
