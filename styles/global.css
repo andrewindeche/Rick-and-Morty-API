@@ -115,10 +115,12 @@ input{
   align-items: center;
   gap: 15em;
 }
-.modal-content{
+.modal-content {
   display: grid;
+  column-gap: 3px;
   grid-template-columns: repeat(6,1fr);
   border:8px solid black;
+  margin:0 auto;
 }
 .modal-content >img{
   border:8px solid black;
@@ -216,7 +218,17 @@ input{
   overflow: auto;
   height: 100%;
 }
-.post-button,.close-button{
+.notes-button{
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+.notes-section{
+  border:2px solid green;
+  display:flex;
+  flex-direction: row;
+}
+.post-button,.close-button, .clear-button{
   font-size: small;
   color:#ffffff;
   width: 40%;
@@ -291,8 +303,8 @@ input{
     .SearchResults img{
       width: 20em;
       margin: 6em;
-      
     }
+    
     .SearchResults{
       font-size: x-large !important;
       display: flex;

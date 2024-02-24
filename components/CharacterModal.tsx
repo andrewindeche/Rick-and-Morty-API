@@ -22,6 +22,10 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
       setNote('');
     }
   };
+  const handleClearNote = () => {
+    setNote('');
+    setPostedNotes([]);
+  };
     return(
         <div className="character-modal">
         <div className="modal-content">
@@ -51,7 +55,19 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             </>
             )}
           </div>
-          <div className="notes-section">
+        <textarea 
+          placeholder="Add notes about the character..."
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        />
+        <div className='notes-button'>
+        <button className='post-button' onClick={handlePostNote}>Post Note</button>
+        <button className='clear-button' onClick={handleClearNote}>Clear</button>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
+        </div>
+        <div className="notes-section">
             <p>Notes </p>
           {postedNotes.map((postedNote, index) => (
             <div key={index} className="posted-note">
@@ -59,15 +75,6 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             </div>
           ))}
         </div>
-        <textarea
-          placeholder="Add notes about the character..."
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-        />
-        <button className='post-button' onClick={handlePostNote}>Post Note</button>
-        <button className="close-button" onClick={onClose}>
-          Close
-        </button>
       </div>
       </div>
     );
