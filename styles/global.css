@@ -195,6 +195,19 @@ input{
 }
 @media only screen and (min-width: 320px) and (max-width: 500px) {
     body {
+      width: 80em;
+      height: 100em
+    }
+    .card > .name, .card > .description{
+      font-size: 50px;
+    }
+    html {
+      width:100%;
+      height:max-content
+    }
+    .wrapper{
+      display: auto;
+      height: fit-content;
       overflow: hidden;
     }
     canvas#cnv {
@@ -227,11 +240,15 @@ input{
     .cards {
       display: grid;
       grid-template-rows: max-content;
+      font-size: xx-large;
     }
     .grid-container {
       font-size: 40px;
       display: flex;
       gap:12px
+    }
+    .header, .headername, .PlanetName, .results {
+      font-size: 40px;
     }
     .ImgContainer {
       display:flex;
@@ -254,7 +271,41 @@ input{
   }
   @media only screen and (min-width: 600px) and (max-width: 800px) {
     body {
-      font-size: 16px; 
+      font-size: 30px; 
+      height:100%
+    }
+    .card > .name{
+      font-size: 30px;
+    }
+    .card {
+      width: 10em
+    }
+    canvas{
+      width: 100%;
+    }
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      gap: 8px;
+      margin: 0
+    }
+    .description {
+      font-size: 30px !important;
+    }
+    .grid-container{
+      font-size: 30px !important;
+    }
+    .search-form{
+      margin: 0 16em;
+    }
+    html {
+      width:300%;
+      height:max-content
+    }
+    .wrapper{
+      display: auto;
+      height: fit-content;
+      overflow: hidden;
     }
     .ImgContainer {
       padding: 0 auto;
@@ -262,8 +313,8 @@ input{
       justify-content: space-between;
     }
     button{
-      padding: 2em 3em 3em 3em;
-      font-size: 20px;
+      padding: 1em 3em 2em 2em;
+      font-size: 40px;
       color:white;
       margin: 1.4em 1em;
     }
