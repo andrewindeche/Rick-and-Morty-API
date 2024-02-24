@@ -9,9 +9,15 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [searching, setSearching] = useState<boolean>(false);
+    const [isValidQuery, setIsValidQuery] = useState<boolean>(true);
     const router = useRouter();
 
     const handleSearch = async () => {
+      if (searchQuery.trim() === '') {
+        setIsValidQuery(false); // Set to false if the query is blank
+        return;
+      }
+      setIsValidQuery(true);
       setSearching(true); 
       try {
         const characterResponse = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
@@ -23,6 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         setSearchQuery('');
       } catch (characterError) {
         console.error('Error fetching character data:', characterError);
+        setIsValidQuery(false);
       }finally {
         setSearching(false); 
       }
@@ -58,17 +65,23 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     };
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
+        setIsValidQuery(true);
       };
     
       const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        handleSearch();
-      };
+        if (searchQuery.trim() === '') {
+          setIsValidQuery(false); 
+          return;
+      }
+      setIsValidQuery(true);
+      handleSearch();
+  };
     return(
-    <form onSubmit={handleSubmit} className="search-form">
+    <form onSubmit={handleSubmit} className={`search-form ${isValidQuery ? '' : 'invalid'}`}>
       <input
         type="text"
-        placeholder="SEARCH FOR CHARACTER,LOCATION OR EPISODE"
+        placeholder={isValidQuery ? "SEARCH FOR CHARACTER, LOCATION OR EPISODE" : "Nothing entered...Please enter a search"}
         value={searchQuery}
         onChange={handleInputChange}
       />
