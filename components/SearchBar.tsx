@@ -8,9 +8,11 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [searching, setSearching] = useState<boolean>(false);
     const router = useRouter();
 
     const handleSearch = async () => {
+      setSearching(true); 
       try {
         const characterResponse = await axios.get(`https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(searchQuery)}`);
         onSearch(searchQuery, characterResponse.data.results);
@@ -21,6 +23,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         setSearchQuery('');
       } catch (characterError) {
         console.error('Error fetching character data:', characterError);
+      }finally {
+        setSearching(false); 
       }
       try {
         const locationResponse = await axios.get(`https://rickandmortyapi.com/api/location/?name=${encodeURIComponent(searchQuery)}`);
@@ -68,7 +72,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button type="submit" onClick={handleSearch} disabled={searching}>{searching ? 'Searching...' : 'Search'}</button>
     </form>
     )
 }
