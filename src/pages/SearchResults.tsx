@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
+import CharacterModal from 'components/CharacterModal'; 
 
 interface SearchResultsProps {
   onSearch: (query: string, results: any[]) => void; 
@@ -9,6 +10,8 @@ interface SearchResultsProps {
 const SearchResults: React.FC<SearchResultsProps> = () => {
   const router = useRouter();
     const { results } = router.query;
+    const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null); // Track the selected character
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const [searchResults, setSearchResults] = useState<{
       origin: any;
       residents: any;
@@ -37,6 +40,11 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     setSearchResults(results);
   };
 
+  const handleCardClick = (character: any) => {
+    setSelectedCharacter(character);
+    setIsModalVisible(true);
+  };
+
   const getEpisodeNumber = (episodeUrls) => {
     if (!episodeUrls || episodeUrls.length === 0) {
       return null;
@@ -52,8 +60,7 @@ return(
       <SearchBar onSearch={handleSearch}/>
       <div className="SearchResults">
         {searchResults.slice(0, 1).map((character, index) =>(
-        
-          <div className='key' key={index}>
+          <div className='key' key={index} onClick={() => handleCardClick(character)}>
             <img
             src={character.image}
             alt={`Search Result ${index + 1}`} />
@@ -87,6 +94,12 @@ return(
             </div>
         ))}
     </div>
+    {selectedCharacter && isModalVisible && (
+          <CharacterModal
+            character={selectedCharacter}
+            onClose={() => setIsModalVisible(false)}
+          />
+        )}
     </Layout>
     </>
   );

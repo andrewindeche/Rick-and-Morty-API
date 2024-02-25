@@ -57,6 +57,11 @@
 <ul>
 <li>Moving stars were used on the navbar to capture emotive interest of a user.</li>
 <li>Images with slideshow animation effects were used to showcase different characters in the Rick and Morty series and to also capture the emotive interest of users</li>
+<li>A hover over design has been implemented on buttons and search results for call to action and to catch the attention of a user</li>
+</ul>
+<p><b>Modal</b></p>
+<ul>
+<li>A modal screen has been added so that a user can view more details about a character and add notes. The modal design reduces unneccessary navigation and adds modularity to the project so that the component can be reused</li>
 </ul>
 
 ## <h1> Commands for Running the Project</h1>
