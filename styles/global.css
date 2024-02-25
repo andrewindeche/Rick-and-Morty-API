@@ -141,6 +141,9 @@ button.post-button{
 .text-area{
   width: 30em !important;
 }
+.NotesTitle{
+  color: black;
+}
 .value{
   color: #AC3131;
   font-size: small;

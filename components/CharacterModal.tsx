@@ -79,7 +79,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
       </div>
       </div>
             <div className="notes-section">
-            <p>Notes about: {character.name} </p>
+            <p><span className='NotesTitle'>Notes about:</span> {character.name} </p>
             {postedNotes.map((postedNote, index) => (
             <div key={index} className="posted-note">
               {postedNote}
