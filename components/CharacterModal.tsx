@@ -59,7 +59,8 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             </>
             )}
           </div>
-        <textarea 
+        <div className="textareabutton">
+        <textarea className='text-area'
           placeholder="Add notes about the character..."
           value={note}
           onChange={(e) => setNote(e.target.value)}
@@ -75,6 +76,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
           Close<FontAwesomeIcon icon={faWindowClose} />
         </button>
         </div>
+      </div>
       </div>
             <div className="notes-section">
             <p>Notes about: {character.name} </p>
