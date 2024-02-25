@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingPage from '@/pages/LandingPage';
 import Layout from 'components/Layout';
-import pool from 'src/pages/db';
+import pool from 'src/pages/api/db';
 import { GetServerSideProps, NextPage } from 'next';
 
 interface Props {
@@ -33,7 +33,7 @@ const Home: React.FC = ( { data }) => {
     } catch (error) {
       console.error('Error fetching data from the database:', error);
       return {
-        props: { data: [] }, // Set an empty array as default if there's an error
+        props: { data: [] }, 
       };
     }
   };
