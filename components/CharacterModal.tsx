@@ -20,10 +20,25 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
   const [note, setNote] = useState('');
   const [postedNotes, setPostedNotes] = useState<string[]>([]);
 
-  const handlePostNote = () => {
+  const handlePostNote = async () => {
     if (note.trim() !== '') {
-      setPostedNotes((prevNotes) => [...prevNotes, note]);
-      setNote('');
+      try {
+        await fetch('http://localhost:3000/api/notes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            characterName: character.name,
+            note,
+          }),
+        });
+
+        setPostedNotes((prevNotes) => [...prevNotes, note]);
+        setNote('');
+      } catch (error) {
+        console.error('Error posting note:', error);
+      }
     }
   };
   const handleClearNote = () => {
