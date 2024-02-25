@@ -91,18 +91,18 @@ button.close-button{
   background-color: red;
   border: 4px solid black;
   width:100px;
-  height:50px
+  height:40px
 }
 button.clear-button{
   border: 4px solid black;
   width:100px;
-  height:50px
+  height:40px
 }
 button.post-button{
   border: 4px solid black;
   background-color: #55BB25;
   width:100px;
-  height:50px
+  height:40px
 }
 .modal-overlay {
   position: fixed;
@@ -138,6 +138,9 @@ button.post-button{
   grid-template-rows: repeat(5,1fr);
   font-size: small;
 }
+.text-area{
+  width: 30em !important;
+}
 .value{
   color: #AC3131;
   font-size: small;
@@ -171,7 +174,6 @@ input{
   margin: 0;
   padding: 0;
 }
-
 .LocationResults >.header, .EpisodeResults >.header {
   display: flex;
   justify-content: center;
@@ -180,10 +182,23 @@ input{
 }
 .modal-content {
   display: grid;
-  column-gap: 3px;
   grid-template-columns: repeat(6,1fr);
+  gap: 1em;
   border:4px solid #55BB25;
   margin:0 auto;
+  position:relative
+}
+.textareabutton{
+  display: flex;
+  flex-direction: row;
+  gap:40px;
+  position: absolute;
+  top:0;
+  right:0
+}
+.textarea,.notes-button{
+  top: 0;
+  right: 0 !important;
 }
 .modal-content >img{
   border:8px solid black;
@@ -281,9 +296,10 @@ input{
   height: 100%;
 }
 .notes-button{
-  display: flex;
-  flex-direction: column;
-  gap:20px;
+  width: 40%;
+  display: grid;
+  gap:14px;
+  grid-template-rows: 1fr 1fr;
 }
 .notes-section{
   border:2px solid green;
@@ -291,11 +307,7 @@ input{
   flex-direction: column;
 }
 .post-button,.close-button, .clear-button{
-  font-size: small;
   color:#ffffff;
-  width: 40%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
 }
 @media only screen and (min-width: 320px) and (max-width: 500px) {
     body {
@@ -365,8 +377,7 @@ input{
     .SearchResults img{
       width: 20em;
       margin: 6em;
-    }
-    
+    } 
     .SearchResults{
       font-size: x-large !important;
       display: flex;
