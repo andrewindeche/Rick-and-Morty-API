@@ -286,7 +286,7 @@ input{
 .notes-section{
   border:2px solid green;
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .post-button,.close-button, .clear-button{
   font-size: small;

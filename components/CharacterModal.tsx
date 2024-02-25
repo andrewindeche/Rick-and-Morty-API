@@ -59,14 +59,6 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             </>
             )}
           </div>
-          <div className="notes-section">
-            <p>Notes about: {character.name} </p>
-          {postedNotes.map((postedNote, index) => (
-            <div key={index} className="posted-note">
-              {postedNote}
-            </div>
-          ))}
-        </div>
         <textarea 
           placeholder="Add notes about the character..."
           value={note}
@@ -84,6 +76,14 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
         </button>
         </div>
       </div>
+            <div className="notes-section">
+            <p>Notes about: {character.name} </p>
+            {postedNotes.map((postedNote, index) => (
+            <div key={index} className="posted-note">
+              {postedNote}
+            </div>
+          ))}
+        </div>
       </div>
     );
 };
