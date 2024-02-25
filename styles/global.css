@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
   }
   
 button{
@@ -69,17 +70,18 @@ canvas {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:max-content;
+  width:90%;
+  height:fit-content;
   transform: translate(-50%, -50%);
   z-index: 1000; 
-  overflow: hidden;
+  overflow: scroll;
   background-color: white; 
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .notes-section p{
-  font-size: 22px;
+  font-size: 15px;
   color: #55BB25;
   margin: 0 auto;
 }
@@ -194,7 +196,7 @@ input{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3em
+  margin: 3em;
 }
 
 .SearchResults img {
@@ -264,7 +266,6 @@ input{
 .search-results title {
     margin: 21em;
 }
-
 .species,.ResidentNumbers,.Location{
   color: #AC3131;
   font-size: large;

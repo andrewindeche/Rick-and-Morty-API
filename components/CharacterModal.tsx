@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
+import { faEraser} from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 
 interface CharacterModalProps {
     character: {
@@ -25,13 +29,6 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
   const handleClearNote = () => {
     setNote('');
     setPostedNotes([]);
-  };
-  const handleOpenModal = () => {
-    document.body.classList.add('body-modal-open');
-  };
-  const handleCloseModal = () => {
-    document.body.classList.remove('body-modal-open');
-    onClose();
   };
     return(
         <div className="character-modal">
@@ -63,7 +60,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
             )}
           </div>
           <div className="notes-section">
-            <p>Notes about: {character.name}  </p>
+            <p>Notes about: {character.name} </p>
           {postedNotes.map((postedNote, index) => (
             <div key={index} className="posted-note">
               {postedNote}
@@ -76,10 +73,14 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
           onChange={(e) => setNote(e.target.value)}
         />
         <div className='notes-button'>
-        <button className='post-button' onClick={handlePostNote}>Post Note</button>
-        <button className='clear-button' onClick={handleClearNote}>Clear</button>
+        <button className='post-button' onClick={handlePostNote}>
+          Post<FontAwesomeIcon icon={faCheckSquare} />
+          </button>
+        <button className='clear-button' onClick={handleClearNote}>
+          Clear<FontAwesomeIcon icon={faEraser} />
+          </button>
         <button className="close-button" onClick={onClose}>
-          Close
+          Close<FontAwesomeIcon icon={faWindowClose} />
         </button>
         </div>
       </div>
