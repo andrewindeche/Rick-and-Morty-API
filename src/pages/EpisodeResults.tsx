@@ -10,7 +10,7 @@ const Episode: React.FC = () => {
 
     const handleSearch = async(query: string, results: any[])  => {
         try {
-            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/${episodeId}`);
+            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/`);
             const { episode, season, name, characters: episodeCharacters } = episodeResponse.data;
             console.log(`Season ${season}, Episode ${episode}: ${name}`);
             setCharacters(episodeCharacters);

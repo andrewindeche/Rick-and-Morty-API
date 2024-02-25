@@ -88,7 +88,7 @@ return(
               </div>
               <br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
-              <span className="species">{character.origin.name}</span>
+              <span className="species">{character.origin?.name}</span>
               </div>
               </div>
             </div>
