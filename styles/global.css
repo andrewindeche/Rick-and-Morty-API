@@ -69,12 +69,36 @@ canvas {
   position: fixed;
   top: 50%;
   left: 50%;
+  width:max-content;
   transform: translate(-50%, -50%);
   z-index: 1000; 
+  overflow: hidden;
   background-color: white; 
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.notes-section p{
+  font-size: 22px;
+  color: #55BB25;
+  margin: 0 auto;
+}
+button.close-button{
+  background-color: red;
+  border: 4px solid black;
+  width:100px;
+  height:50px
+}
+button.clear-button{
+  border: 4px solid black;
+  width:100px;
+  height:50px
+}
+button.post-button{
+  border: 4px solid black;
+  background-color: #55BB25;
+  width:100px;
+  height:50px
 }
 .modal-overlay {
   position: fixed;
@@ -91,6 +115,11 @@ canvas {
 }
 .character-modal, .modal-overlay {
   transition: opacity 0.3s ease-in-out;
+}
+.body-modal-open .modal-overlay,
+.body-modal-open .character-modal {
+  display: block;
+  opacity: 1;
 }
 .body-modal-open .modal-overlay,
 .body-modal-open .character-modal {
@@ -149,7 +178,7 @@ input{
   display: grid;
   column-gap: 3px;
   grid-template-columns: repeat(6,1fr);
-  border:8px solid black;
+  border:4px solid #55BB25;
   margin:0 auto;
 }
 .modal-content >img{
@@ -251,7 +280,7 @@ input{
 .notes-button{
   display: flex;
   flex-direction: column;
-  gap:10px
+  gap:10px;
 }
 .notes-section{
   border:2px solid green;
