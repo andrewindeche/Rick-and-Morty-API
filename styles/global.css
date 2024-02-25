@@ -70,7 +70,9 @@ canvas {
   position: fixed;
   top: 50%;
   left: 50%;
-  width:90%;
+  width:80%;
+  display: grid;
+  grid-template-rows: 7fr 5fr;
   height:fit-content;
   transform: translate(-50%, -50%);
   z-index: 1000; 
@@ -281,7 +283,7 @@ input{
 .notes-button{
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap:20px;
 }
 .notes-section{
   border:2px solid green;
