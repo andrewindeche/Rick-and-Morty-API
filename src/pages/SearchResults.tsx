@@ -82,11 +82,6 @@ return(
               <span className='Location'>{character.location.name}</span>
                       )}
                     </div>
-              <br />
-              <div className="residents"><span className="label">RESIDENTS</span><br />
-              <span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span>
-              </div>
-              <br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
               <span className="species">{character.origin?.name}</span>
               </div>
