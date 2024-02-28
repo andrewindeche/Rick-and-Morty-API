@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useState }  from 'react';
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
 import axios from 'axios';
@@ -37,7 +37,7 @@ const Episode: React.FC = () => {
           ) : (
             <div className="results">No results found <span className='PlanetName'>{episodeName}</span></div>
           )}
-        <div className="cards">
+       
             {characters.map((character, index) => (
               <div className="card" key={index}>
                 <img src={character.image} alt={character.name} />
@@ -47,7 +47,6 @@ const Episode: React.FC = () => {
                 <div className="description">{character.status} - ${character.species}</div>
               </div>
             ))}
-          </div>
           </div>
           </div>
           </div>

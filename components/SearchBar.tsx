@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       if (searchQuery.trim() === '') {
-        setIsValidQuery(false); // Set to false if the query is blank
+        setIsValidQuery(false); 
         return;
       }
       setIsValidQuery(true);
