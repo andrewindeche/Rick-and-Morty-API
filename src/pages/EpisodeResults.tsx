@@ -10,8 +10,9 @@ const Episode: React.FC = () => {
 
     const handleSearch = async(query: string, results: any[])  => {
         try {
-            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/`);
+            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(query)}`);
             const { episode, season, name, characters: episodeCharacters } = episodeResponse.data;
+            setEpisodeResults(episodeCharacters);
             console.log(`Season ${season}, Episode ${episode}: ${name}`);
             setCharacters(episodeCharacters);
         } catch (error) {
@@ -37,8 +38,7 @@ const Episode: React.FC = () => {
           ) : (
             <div className="results">No results found <span className='PlanetName'>{episodeName}</span></div>
           )}
-       
-            {characters.map((character, index) => (
+            {Array.isArray(characters) && characters.map((character, index) =>  (
               <div className="card" key={index}>
                 <img src={character.image} alt={character.name} />
                 <div className="name">{character.name}</div>
@@ -46,12 +46,12 @@ const Episode: React.FC = () => {
                 <div className="origin">{character.origin.name}</div>
                 <div className="description">{character.status} - ${character.species}</div>
               </div>
-            ))}
+            ))} 
           </div>
           </div>
           </div>
-          </Layout>
-          </>
+        </Layout>
+      </>
     )
 }
 

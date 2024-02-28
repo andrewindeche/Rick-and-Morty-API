@@ -51,7 +51,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       } catch (locationError) {
         console.error('Error fetching location data:', locationError);
       } try{
-        const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/`);
+        const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(searchQuery)}`);
         if (episodeResponse.data.results.length > 0) {
           onSearch(searchQuery, episodeResponse.data.results);
           router.push({
