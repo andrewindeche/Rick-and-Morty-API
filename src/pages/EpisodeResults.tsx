@@ -4,7 +4,7 @@ import Layout from 'components/Layout';
 import axios from 'axios';
 
 const Episode: React.FC = () => {
-    const [episodeResults, setEpisodeResults] = useState<any>({});
+    const [episodeResults, setEpisodeResults] = useState<any[]>([]);
     const [episodeName, setEpisodeName] = useState<string | null>(null);
     const [characters, setCharacters] = useState<any[]>([]);
 

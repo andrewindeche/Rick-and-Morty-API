@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [isValidQuery, setIsValidQuery] = useState<boolean>(true);
     const router = useRouter();
 
-    const handleSearch = async () => {
+    const handleSearch = async (query: string) => {
       if (searchQuery.trim() === '') {
         setIsValidQuery(false); 
         return;

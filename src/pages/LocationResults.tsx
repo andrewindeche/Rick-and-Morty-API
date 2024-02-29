@@ -1,11 +1,23 @@
 import React, { useEffect, useState }  from 'react';
+import { useRouter } from 'next/router'; 
 import SearchBar from 'components/SearchBar';
 import Layout from 'components/Layout';
 import axios from 'axios';
 const Location: React.FC = () => {
+  const router = useRouter();
   const [locationResults, setLocationResults] = useState<any>({});
   const [locationName, setLocationName] = useState<string | null>(null);
   const [characters, setCharacters] = useState<any[]>([]);
+
+useEffect(() => {
+  const { results, characters } = router.query;
+  if (results) {
+    setLocationResults(JSON.parse(results as string));
+  }
+  if (characters) {
+    setCharacters(JSON.parse(characters as string));
+  }
+}, [router.query])
 
   const handleSearch = async(query: string)  => {
     try {
