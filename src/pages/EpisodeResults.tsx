@@ -55,8 +55,8 @@ const Episode: React.FC = () => {
           <div className='EpisodeResults'>
           {episodeName && (
             <div className="header">
-          <div className="EpisodeHeader">EPISODE NUMBER: <span className='headername'>{episodeName}</span></div>
-          <div className="ResidentsHeader">EPISODE NAME: <span className='headername'>{episodeResults.length}</span></div>
+          <div className="EpisodeHeader">EPISODE NAME: <span className='headername'>{episodeName}</span></div>
+          <div className="ResidentsHeader">EPISODE RESULTS: <span className='headername'>{episodeResults.length}</span></div>
             </div>
             )}
             {episodeResults.length > 0 ? (
