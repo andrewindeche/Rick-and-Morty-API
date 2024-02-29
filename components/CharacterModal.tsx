@@ -23,7 +23,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
   const handlePostNote = async () => {
     if (note.trim() !== '') {
       try {
-        await fetch('http://localhost:3001/api/notes', {
+        await fetch('http://localhost:3000/api/notes', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
