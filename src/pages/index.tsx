@@ -26,7 +26,7 @@ const Home: React.FC = ( { data }) => {
   };
   export const getServerSideProps: GetServerSideProps<Props> = async () => {
     try {
-      const [rows] = await pool.query('SELECT * FROM your_table_name');
+      const [rows] = await pool.query('SELECT * FROM notes');
       return {
         props: { data: rows },
       };

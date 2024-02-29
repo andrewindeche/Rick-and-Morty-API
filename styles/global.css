@@ -73,6 +73,9 @@ canvas {
 .episode-card > .name {
   color: #AC3131;
 }
+.episode-card > .description {
+  color: #55BB25;
+}
 .cards {
     display: grid;
     padding: 2em 6em;
@@ -146,7 +149,7 @@ button.post-button{
 .ResultName{
   color: #AC3131;
 }
-.details{
+.details {
   display: grid;
   grid-template-rows: repeat(5,1fr);
   font-size: small;
@@ -306,6 +309,9 @@ input{
 .wrapper {
   overflow: hidden;
   height: 100vh;
+}
+.value{
+  color:#55BB25;
 }
 .page {
   overflow: auto;

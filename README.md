@@ -36,6 +36,7 @@
 <p><b>MySql</b></p>
 <ul>
 <li>MySql relational database has been used for storing consistent information/notes regarding a cartoon character.It is opensource, popular,run on multiple environments</li>
+<li> to access DB use .env variables</li>
 </ul>
 <p><b>Figma</b></p>
 <ul>The design implemantation was implemented using Figma, an online tool for designing wireframes and Prototypes.It is a user friendly and simple tool used for designing</ul>
