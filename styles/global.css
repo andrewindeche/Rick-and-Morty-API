@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+*{
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+button{
+    width: 10%;
+    height: 56px;
+    font-size: 22px;
+    border:8px solid #F7825E;
+    background-color: #AC3131;
+  }
+button:hover {
+    background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
+    color:#ffffff;
+    cursor: pointer;
+    animation: glowing 20s linear infinite;
+  }
+
+.BeingType{
+    color:#55BB25;
+  }
+
+.BeingType::before{
+    content: "•";
+    font-size: large;
+  }
+  
+canvas {
+    position: relative;
+  }
+
+.SearchResults img:hover {
+  border-color: red;
+  animation: glowing 20s linear infinite;
+  cursor: pointer;
+}
+
+.card > .description {
+    color:#55BB25;
+    font-size: 14px
+}
+
+.card > img {
+    border:8px solid black;
+    width:50%
+  }
+
+  .episode-card > img {
+    border:8px solid black;
+    width:50%
+  }
+.episode-cards{
+  display:grid;
+  padding: 2em 6em;
+  margin: 1em 4em;
+  grid-template-columns: repeat(4,1fr);
+}
+.card > .name {
+    font-size: 22px;
+    color: #AC3131;
+}
+.episode-card > .name {
+  color: #AC3131;
+}
+.episode-card > .description {
+  color: #55BB25;
+}
+.cards {
+    display: grid;
+    padding: 2em 6em;
+    margin: 1em 4em;
+    grid-template-columns: repeat(4,1fr);
+}
+.character-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:80%;
+  display: grid;
+  grid-template-rows: 7fr 5fr;
+  height:fit-content;
+  transform: translate(-50%, -50%);
+  z-index: 1000; 
+  overflow: scroll;
+  background-color: white; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.notes-section p{
+  font-size: 15px;
+  color: #55BB25;
+  margin: 0 auto;
+}
+button.close-button{
+  background-color: red;
+  border: 4px solid black;
+  width:100px;
+  height:40px
+}
+button.clear-button{
+  border: 4px solid black;
+  width:100px;
+  height:40px
+}
+button.post-button{
+  border: 4px solid black;
+  background-color: #55BB25;
+  width:100px;
+  height:40px
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
+  display: none; 
+}
+.body-modal-open {
+  overflow: hidden; 
+}
+.character-modal, .modal-overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+.body-modal-open .modal-overlay,
+.body-modal-open .character-modal {
+  display: block;
+  opacity: 1;
+}
+.body-modal-open .modal-overlay,
+.body-modal-open .character-modal {
+  display: block;
+  opacity: 1;
+}
+.ResultName{
+  color: #AC3131;
+}
+.details {
+  display: grid;
+  grid-template-rows: repeat(5,1fr);
+  font-size: small;
+}
+.text-area{
+  width: 30em !important;
+}
+.NotesTitle{
+  color: black;
+}
+.value{
+  color: #AC3131;
+  font-size: small;
+}
+.headername {
+  font-size: 22px;
+  color: #AC3131;
+}
+.ImgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10em;
+  margin: 9em;
+  padding-left: 14em;
+}
+
+input{
+  color: white;
+  width: 40%;
+  height: 35px;
+  border:6px solid #518D34;
+  background-color: #55BB25;
+  font-size: 22px;
+  margin: 1em 10em
+}
+
+.location, .residents {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+.LocationResults >.header, .EpisodeResults >.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15em;
+}
+.modal-content {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 1em;
+  border:4px solid #55BB25;
+  margin:0 auto;
+  position:relative
+}
+.textareabutton{
+  display: flex;
+  flex-direction: row;
+  gap:40px;
+  position: absolute;
+  top:0;
+  right:0
+}
+.textarea,.notes-button{
+  top: 0;
+  right: 0 !important;
+}
+.modal-content >img{
+  border:8px solid black;
+  margin: 0 auto;
+  width: 90%
+}
+.grid-container > .name {
+  color: #AC3131;
+  font-size: xx-large;
+}
+.SearchResults {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3em;
+}
+
+.SearchResults img {
+  border:8px solid black;
+  width:30%;
+}
+
+.navigation {
+  font-size: 40px;
+  color:#F7825E;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+.PlanetName{
+  color: #AC3131;
+}
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color:#55BB25;
+  word-spacing: 8px;
+  padding: 8px;
+}
+.species:hover{
+  color:#55BB25;
+  cursor: pointer;
+}
+.grid-container {
+  float: right;
+}
+.search-form.invalid input {
+  border: 6px solid red;
+}
+.Results {
+  display: grid;
+  margin: 1em 14em;
+  gap: 2em;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.Results > img {
+  border:8px solid black;
+}
+
+.ResultName{
+  font-size: x-large;
+}
+.ResultTally,.Episodes{
+  color:#55BB25;
+  font-size: x-large;
+}
+
+.search-form input::placeholder {
+  color: #ffffff; 
+  transform: rotate(1deg); 
+  padding-left: 2em;
+  font-size:larger
+}
+.search-form input:hover {
+  background: linear-gradient(45deg,#F7825E, #006C67, #AC3131);
+  color:#55BB25;
+  cursor: pointer;
+  animation: glowing 20s linear infinite;
+}
+.search-results title {
+    margin: 21em;
+}
+.species,.ResidentNumbers,.Location{
+  color: #AC3131;
+  font-size: large;
+}
+.wrapper {
+  overflow: hidden;
+  height: 100vh;
+}
+.value{
+  color:#55BB25;
+}
+.page {
+  overflow: auto;
+  height: 100%;
+}
+.notes-button{
+  width: 40%;
+  display: grid;
+  gap:14px;
+  grid-template-rows: 1fr 1fr;
+}
+.notes-section{
+  border:2px solid green;
+  display:flex;
+  flex-direction: column;
+}
+.post-button,.close-button, .clear-button{
+  color:#ffffff;
+}
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+    body {
+      width: 80em;
+      height: 100em
+    }
+    .card > .name, .card > .description{
+      font-size: 50px;
+    }
+    html {
+      width:100%;
+      height:max-content
+    }
+    .wrapper{
+      display: auto;
+      height: fit-content;
+      overflow: hidden;
+    }
+    canvas#cnv {
+      height: 15em
+    }
+    .navigation {
+      font-size: 4em;
+      display:flex;
+      text-align: center;
+      align-items: center;
+      gap: 10px;
+      margin: 8px
+    }
+    .search-form input{
+      width:22em;
+      height: 4em;
+      margin: 1em 2em;
+      font-size: 2em !important;
+    }
+    .search-form {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    button {
+      width:6em;
+      height:4em;
+      font-size: 3em;
+      margin: 0.5em 1em;
+    }
+    .cards {
+      display: grid;
+      grid-template-rows: max-content;
+      font-size: xx-large;
+    }
+    .grid-container {
+      font-size: 40px;
+      display: flex;
+      gap:12px
+    }
+    .header, .headername, .PlanetName, .results {
+      font-size: 40px;
+    }
+    .ImgContainer {
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .Location, .species{
+      font-size: xx-large;
+    }
+    .SearchResults img{
+      width: 20em;
+      margin: 6em;
+    } 
+    .SearchResults{
+      font-size: x-large !important;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
+    body {
+      font-size: 30px; 
+      height:100%
+    }
+    .card > .name{
+      font-size: 30px;
+    }
+    .card {
+      width: 10em
+    }
+    canvas{
+      width: 100%;
+    }
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+      gap: 8px;
+      margin: 0
+    }
+    .description {
+      font-size: 30px !important;
+    }
+    .grid-container{
+      font-size: 30px !important;
+    }
+    .search-form{
+      margin: 0 16em;
+    }
+    html {
+      width:300%;
+      height:max-content
+    }
+    .wrapper{
+      display: auto;
+      height: fit-content;
+      overflow: hidden;
+    }
+    .ImgContainer {
+      padding: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    button{
+      padding: 1em 3em 2em 2em;
+      font-size: 40px;
+      color:white;
+      margin: 1.4em 1em;
+    }
+    .search-form {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+    }
+    .search-form input{
+      width:22em;
+      height: 5em;
+      margin: 1em 12em;
+    }
+    .navigation{
+      display:flex;
+      text-align: center;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+      margin: 1em 7em;
+    }
+  }
+ 
