@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [isValidQuery, setIsValidQuery] = useState<boolean>(true);
     const router = useRouter();
 
-    const handleSearch = async (query: string) => {
+    const handleSearch = async () => {
       if (searchQuery.trim() === '') {
         setIsValidQuery(false); 
         return;
@@ -55,9 +55,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(searchQuery)}`);
         if (episodeResponse.data.results.length > 0) {
           onSearch(searchQuery, episodeResponse.data.results);
+          const characterPromises = episodeResponse.data.results[0]?.characters.map((character: string) => axios.get(character));
+          const characterResponses = await Promise.all(characterPromises);
+          const characterData = characterResponses.map((characterResponse: any) => characterResponse.data);
+
           router.push({
             pathname: '/EpisodeResults',
-            query: { results: JSON.stringify(episodeResponse.data.results) }
+            query: { 
+              results: JSON.stringify(episodeResponse.data.results),
+              characters: JSON.stringify(characterData),
+              searchQuery: encodeURIComponent(searchQuery), 
+            }
           });
         }
       } catch(episodeError){

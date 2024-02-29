@@ -56,9 +56,22 @@ canvas {
     width:50%
   }
 
+  .episode-card > img {
+    border:8px solid black;
+    width:50%
+  }
+.episode-cards{
+  display:grid;
+  padding: 2em 6em;
+  margin: 1em 4em;
+  grid-template-columns: repeat(4,1fr);
+}
 .card > .name {
     font-size: 22px;
     color: #AC3131;
+}
+.episode-card > .name {
+  color: #AC3131;
 }
 .cards {
     display: grid;
