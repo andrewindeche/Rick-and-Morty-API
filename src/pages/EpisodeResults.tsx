@@ -13,7 +13,7 @@ const Episode: React.FC = () => {
             const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(query)}`);
             const { episode, season, name, characters: episodeCharacters } = episodeResponse.data;
             setEpisodeResults(episodeCharacters);
-            console.log(`Season ${season}, Episode ${episode}: ${name}`);
+            setEpisodeName(`Season ${season}, Episode ${episode}: ${name}`);
             setCharacters(episodeCharacters);
         } catch (error) {
             console.error('Error fetching episode details:', error);

@@ -44,7 +44,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             pathname: '/LocationResults',
             query: { 
               results: JSON.stringify(locationResponse.data.results),
-              characters: JSON.stringify(characterData)
+              characters: JSON.stringify(characterData),
+              searchQuery: encodeURIComponent(searchQuery),
             }
           });
         }

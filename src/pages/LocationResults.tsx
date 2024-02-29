@@ -10,12 +10,15 @@ const Location: React.FC = () => {
   const [characters, setCharacters] = useState<any[]>([]);
 
 useEffect(() => {
-  const { results, characters } = router.query;
+  const { results, characters, searchQuery  } = router.query;
   if (results) {
     setLocationResults(JSON.parse(results as string));
   }
   if (characters) {
     setCharacters(JSON.parse(characters as string));
+  }
+  if (searchQuery) {
+    setLocationName(decodeURIComponent(searchQuery as string));
   }
 }, [router.query])
 
