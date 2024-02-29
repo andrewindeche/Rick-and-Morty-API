@@ -1,24 +1,51 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useState, useEffect  }  from 'react';
 import SearchBar from 'components/SearchBar';
+import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
 import axios from 'axios';
 
 const Episode: React.FC = () => {
-    const [episodeResults, setEpisodeResults] = useState<any>({});
+  const router = useRouter();
+    const [episodeResults, setEpisodeResults] = useState<any[]>([]);
     const [episodeName, setEpisodeName] = useState<string | null>(null);
     const [characters, setCharacters] = useState<any[]>([]);
 
-    const handleSearch = async(query: string, results: any[])  => {
-        try {
-            const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/${episodeId}`);
-            const { episode, season, name, characters: episodeCharacters } = episodeResponse.data;
-            console.log(`Season ${season}, Episode ${episode}: ${name}`);
-            setCharacters(episodeCharacters);
-        } catch (error) {
-            console.error('Error fetching episode details:', error);
-        }
-      };
+    useEffect(() => {
+      const { results, characters, searchQuery } = router.query;
+      if (results) {
+        setEpisodeResults(JSON.parse(results as string));
+      }
+      if (characters) {
+        setCharacters(JSON.parse(characters as string));
+      }
+      if (searchQuery) {
+        setEpisodeName(decodeURIComponent(searchQuery as string));
+      }
+    }, [router.query]);
   
+  async function handleSearch(query: string) {
+    try{
+      const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(searchQuery)}`);
+      if (episodeResponse.data.results.length > 0) {
+        onSearch(searchQuery, episodeResponse.data.results);
+        const characterPromises = episodeResponse.data.results[0]?.characters.map((character: string) => axios.get(character));
+        const characterResponses = await Promise.all(characterPromises);
+        const characterData = characterResponses.map((characterResponse: any) => characterResponse.data);
+
+        router.push({
+          pathname: '/EpisodeResults',
+          query: { 
+            results: JSON.stringify(episodeResponse.data.results),
+            characters: JSON.stringify(characterData),
+            searchQuery: encodeURIComponent(searchQuery), 
+          }
+        });
+      }
+    } catch(episodeError){
+      console.error('Error fetching episode data:', episodeError);
+    }
+  }
+
     return(
         <>
         <Layout>
@@ -28,8 +55,8 @@ const Episode: React.FC = () => {
           <div className='EpisodeResults'>
           {episodeName && (
             <div className="header">
-          <div className="EpisodeHeader">EPISODE NUMBER: <span className='headername'>{episodeName}</span></div>
-          <div className="ResidentsHeader">EPISODE NAME: <span className='headername'>{episodeResults.length}</span></div>
+          <div className="EpisodeHeader">EPISODE NAME: <span className='headername'>{episodeName}</span></div>
+          <div className="ResidentsHeader">EPISODE RESULTS: <span className='headername'>{episodeResults.length}</span></div>
             </div>
             )}
             {episodeResults.length > 0 ? (
@@ -37,22 +64,22 @@ const Episode: React.FC = () => {
           ) : (
             <div className="results">No results found <span className='PlanetName'>{episodeName}</span></div>
           )}
-        <div className="cards">
-            {characters.map((character, index) => (
-              <div className="card" key={index}>
+          <div className="episode-cards">
+            {Array.isArray(characters) && characters.map((character, index) =>  (
+              <div className="episode-card" key={index}>
                 <img src={character.image} alt={character.name} />
                 <div className="name">{character.name}</div>
                 <div className="dimension">{character.dimension}</div>
                 <div className="origin">{character.origin.name}</div>
                 <div className="description">{character.status} - ${character.species}</div>
               </div>
-            ))}
+            ))} 
           </div>
           </div>
           </div>
           </div>
-          </Layout>
-          </>
+        </Layout>
+      </>
     )
 }
 

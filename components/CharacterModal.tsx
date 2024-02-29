@@ -20,10 +20,25 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
   const [note, setNote] = useState('');
   const [postedNotes, setPostedNotes] = useState<string[]>([]);
 
-  const handlePostNote = () => {
+  const handlePostNote = async () => {
     if (note.trim() !== '') {
-      setPostedNotes((prevNotes) => [...prevNotes, note]);
-      setNote('');
+      try {
+        await fetch('http://localhost:3001/api/notes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            characterName: character.name,
+            note,
+          }),
+        });
+
+        setPostedNotes((prevNotes) => [...prevNotes, note]);
+        setNote('');
+      } catch (error) {
+        console.error('Error posting note:', error);
+      }
     }
   };
   const handleClearNote = () => {
@@ -78,12 +93,12 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
         </div>
       </div>
       </div>
-            <div className="notes-section">
-            <p>Notes about: {character.name} </p>
-            {postedNotes.map((postedNote, index) => (
-            <div key={index} className="posted-note">
-              {postedNote}
-            </div>
+        <div className="notes-section">
+        <p><span className='NotesTitle'>Notes about:</span> {character.name} </p>
+        {postedNotes.map((postedNote, index) => (
+        <div key={index} className="posted-note">
+          {postedNote}
+        </div>
           ))}
         </div>
       </div>

@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     const handleSearch = async () => {
       if (searchQuery.trim() === '') {
-        setIsValidQuery(false); // Set to false if the query is blank
+        setIsValidQuery(false); 
         return;
       }
       setIsValidQuery(true);
@@ -44,19 +44,28 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             pathname: '/LocationResults',
             query: { 
               results: JSON.stringify(locationResponse.data.results),
-              characters: JSON.stringify(characterData)
+              characters: JSON.stringify(characterData),
+              searchQuery: encodeURIComponent(searchQuery),
             }
           });
         }
       } catch (locationError) {
         console.error('Error fetching location data:', locationError);
       } try{
-        const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/${episodeId}`);
+        const episodeResponse = await axios.get(`https://rickandmortyapi.com/api/episode/?name=${encodeURIComponent(searchQuery)}`);
         if (episodeResponse.data.results.length > 0) {
           onSearch(searchQuery, episodeResponse.data.results);
+          const characterPromises = episodeResponse.data.results[0]?.characters.map((character: string) => axios.get(character));
+          const characterResponses = await Promise.all(characterPromises);
+          const characterData = characterResponses.map((characterResponse: any) => characterResponse.data);
+
           router.push({
             pathname: '/EpisodeResults',
-            query: { results: JSON.stringify(episodeResponse.data.results) }
+            query: { 
+              results: JSON.stringify(episodeResponse.data.results),
+              characters: JSON.stringify(characterData),
+              searchQuery: encodeURIComponent(searchQuery), 
+            }
           });
         }
       } catch(episodeError){

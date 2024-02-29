@@ -10,7 +10,7 @@ interface SearchResultsProps {
 const SearchResults: React.FC<SearchResultsProps> = () => {
   const router = useRouter();
     const { results } = router.query;
-    const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null); // Track the selected character
+    const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [searchResults, setSearchResults] = useState<{
       origin: any;
@@ -82,13 +82,8 @@ return(
               <span className='Location'>{character.location.name}</span>
                       )}
                     </div>
-              <br />
-              <div className="residents"><span className="label">RESIDENTS</span><br />
-              <span className="ResidentNumbers">{ character.residents ? character.residents.length : 0 }</span>
-              </div>
-              <br />
               <div className="first-seen"><span className="label">FIRST SEEN IN</span><br />
-              <span className="species">{character.origin.name}</span>
+              <span className="species">{character.origin?.name}</span>
               </div>
               </div>
             </div>
