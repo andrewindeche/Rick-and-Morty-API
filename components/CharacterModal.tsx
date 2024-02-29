@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose} from '@fortawesome/free-solid-svg-icons';
 import { faEraser} from '@fortawesome/free-solid-svg-icons';
@@ -37,7 +37,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
         setPostedNotes((prevNotes) => [...prevNotes, note]);
         setNote('');
       } catch (error) {
-        console.error('Error posting note:', error);
+        console.error('Error posting note:', error as Error);
       }
     }
   };
@@ -45,6 +45,19 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
     setNote('');
     setPostedNotes([]);
   };
+  useEffect(() => {
+    const fetchNotes = async () => {
+      try {
+        const response = await fetch(`/api/notes?characterName=${encodeURIComponent(character.name)}`);
+        const data = await response.json();
+        setPostedNotes(data.notes || []);
+      } catch (error) {
+        console.error('Error fetching notes:', error as Error);
+      }
+    };
+
+    fetchNotes();
+  }, [character.name]);
     return(
         <div className="character-modal">
         <div className="modal-content">
@@ -94,7 +107,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
       </div>
       </div>
         <div className="notes-section">
-        <p><span className='NotesTitle'>Notes about:</span> {character.name} </p>
+        <p><span className='NotesTitle'>Notes about:</span> {character.name}{' '} </p>
         {postedNotes.map((postedNote, index) => (
         <div key={index} className="posted-note">
           {postedNote}
