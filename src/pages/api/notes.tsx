@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import pool from './db.tsx';
+import { RowDataPacket } from 'mysql2';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -27,9 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         [characterName]
       );
 
-      const rowDataPackets: RowDataPacket[] = results;
-
-      const notes = rowDataPackets.map((row) => row.note);
+      const notes = results.map((row) => row.note);
       res.status(200).json({ notes });
     } catch (error) {
       console.error('Error fetching notes:', error);

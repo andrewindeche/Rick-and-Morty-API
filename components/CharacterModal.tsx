@@ -45,19 +45,20 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
     setNote('');
     setPostedNotes([]);
   };
-  useEffect(() => {
-    const fetchNotes = async () => {
-      try {
-        const response = await fetch(`/api/notes?characterName=${encodeURIComponent(character.name)}`);
-        const data = await response.json();
-        setPostedNotes(data.notes || []);
-      } catch (error) {
-        console.error('Error fetching notes:', error as Error);
-      }
-    };
 
+  const fetchNotes = async () => {
+    try {
+      const response = await fetch(`/api/notes?characterName=${encodeURIComponent(character.name)}`);
+      const data = await response.json();
+      setPostedNotes(data.notes || []);
+    } catch (error) {
+      console.error('Error fetching notes:', error as Error);
+    }
+  };
+  useEffect(() => {
     fetchNotes();
   }, [character.name]);
+  
     return(
         <div className="character-modal">
         <div className="modal-content">
@@ -119,3 +120,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
 };
 
 export default CharacterModal;
+
+function fetchNotes() {
+  throw new Error('Function not implemented.');
+}
