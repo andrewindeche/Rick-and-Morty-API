@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from '@/pages/LandingPage';
 import Layout from 'components/Layout';
 import pool from 'src/pages/api/db';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 
 interface Props {
   data: any[];
