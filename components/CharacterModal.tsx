@@ -55,6 +55,7 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
       console.error('Error fetching notes:', error as Error);
     }
   };
+
   useEffect(() => {
     fetchNotes();
   }, [character.name]);
@@ -121,6 +122,4 @@ const CharacterModal: React.FC<CharacterModalProps> = ({ character, onClose }) =
 
 export default CharacterModal;
 
-function fetchNotes() {
-  throw new Error('Function not implemented.');
-}
+
