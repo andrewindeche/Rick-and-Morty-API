@@ -47,13 +47,26 @@ useEffect(() => {
       <SearchBar onSearch={handleSearch} />
         <div className='LocationResults'>
         {locationName && (
-          <div className="header">
+      <div className="header">
         <div className="LocationHeader">LOCATION: <span className='headername'>{locationName}</span></div>
-        <div className="ResidentsHeader">RESIDENTS: <span className='headername'>{locationResults.length}</span></div>
+        {locationResults.length > 0 && (
+          <div className="ResidentsHeader">
+            RESIDENTS:
+            <span className='headername'>
+              {locationResults.map((result: { residents: string | any[]; }, index: React.Key | null | undefined) => (
+                <span key={index}>{result.residents.length}</span>
+              ))}
+            </span>
           </div>
+        )}
+      </div>
           )}
           {locationResults.length > 0 ? (
-        <div className="results">{locationResults.length} RESULT FOR: <span className='PlanetName'>{locationName}</span></div>
+        <div className="results">
+          {locationResults.map((result, index) => (
+            <span key={index}>{result.residents.length} RESULT FOR: <span className='PlanetName'>{locationName}</span></span>
+          ))}
+        </div>
         ) : (
           <div className="results">No results found <span className='PlanetName'>{locationName}</span></div>
         )}
