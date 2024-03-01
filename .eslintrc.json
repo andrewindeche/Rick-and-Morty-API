@@ -5,6 +5,8 @@
         "node": true
     },
     "extends": [
+        "next",
+        "next/core-web-vitals",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended"
@@ -17,7 +19,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "jsx-a11y"
     ],
   "settings": {
     "react": {
