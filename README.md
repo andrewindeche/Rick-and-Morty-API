@@ -21,7 +21,7 @@
 <p><b>NextJs</b></p>
 <ul>
 <li>The project was built using NextJs, A React Based Javascript FrontEnd Framework. Typescript syntax was used for the project. A minimal NextJs App was used to build the application from scratch for efficiency in space uilization and simplicity in the Application functionality.
-<b>Configuration Process</b>
+<p><b>Configuration Process</b></p>
 <ul>
 <li> Creation of a new directory and initialization of Package.json using npm init</li>
 <li> Dependency installations (npm v.10.4.0 and node v.21.4.0) for React,Typescript,NextJs</li>
