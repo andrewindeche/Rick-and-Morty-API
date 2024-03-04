@@ -39,7 +39,7 @@
 <li> to access DB use .env variables</li>
 </ul>
 <p><b>Figma</b></p>
-<ul>The design implemantation was implemented using Figma, an online tool for designing wireframes and Prototypes.It is a user friendly and simple tool used for designing</ul>
+<ul>The design implementation was implemented using Figma, an online tool for designing wireframes and Prototypes.It is a user friendly and simple tool used for designing</ul>
 <p></p>
 
 ## Design Implementation
